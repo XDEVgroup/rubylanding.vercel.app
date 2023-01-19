@@ -286,7 +286,7 @@ export async function getServerSideProps(context: any) {
   const providers = await getProviders();
   const session = await getSession(context);
 
-  if (!session?.user?.id?.includes("cld31y4uz0000me08352v8lcs")) {
+  if (!session?.user?.id?.includes("cld356sj70000lf086717vww3")) {
     return {
       redirect: {
         destination: "/admin",
