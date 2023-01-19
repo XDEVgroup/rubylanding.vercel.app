@@ -36,51 +36,7 @@ export const mailRouter = createTRPCRouter({
       return  info.messageId;
     }),
 
-    getContact: protectedProcedure
     
-    .query(async ({ ctx }) => {
-
-      const data = await ctx.prisma.aanvraag.findMany()
-
-      return  data;
-    }),
-
-    addgebeld: protectedProcedure
-    .input(z.object({ id: z.string()}))
-    .mutation(async ({ ctx,input }) => {
-      const find = await ctx.prisma.aanvraag.findFirst({
-        where:{
-          id: input.id
-        }
-      })
-
-      if(!find?.gebeld){
-        const setTrue:any = await ctx.prisma.aanvraag.update({
-          where: {
-            id: input.id
-          },
-          data:{
-            gebeld: true
-          }
-          
-        })
-        return setTrue
-      }
-      else{
-        const setFalse:any = await ctx.prisma.aanvraag.update({
-          where: {
-            id: input.id
-          },
-          data:{
-            gebeld: false
-          }
-        })
-        return setFalse
-      }
-      
-      
-      
-    }),
 
    
   });

@@ -47,11 +47,11 @@ function Header({ scrolltoId }: any) {
       </Link>
       <div className="flex items-center sm:gap-0 lg:gap-20 lg:p-4">
         <div>
-          <Link href="/blogs">
+          <a href="http://rubyfinance.nl/blogs">
             <button className="sm:text-1x1 mr-6 font-bold lg:mr-0 lg:text-2xl">
               Blogs
             </button>
-          </Link>
+          </a>
         </div>
         <div className="mr-6">
           {router.locale == "nl-NL" ? (
