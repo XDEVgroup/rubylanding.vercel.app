@@ -33,8 +33,8 @@ function dashboard() {
           </Link>
         </div>
         <div className="mt-4 flex gap-2">
-          <button className="mr-2 ml-2 mb-2 rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-            BlogAI (soon)
+          <button className="mr-2 ml-2 mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-400 px-5 py-2.5 text-sm font-medium text-white    ">
+            Blog PUMP-AI (soon)
           </button>
 
           <Link href="/">
