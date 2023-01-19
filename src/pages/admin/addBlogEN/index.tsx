@@ -10,7 +10,7 @@ import { api } from "../../../utils/api";
 import Image from "next/image";
 import HeaderBlack from "../../../components/HeaderBlack";
 
-function index(this: any) {
+function Index(this: any) {
   const [title, setTitle] = useState("Vul een titel in");
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
@@ -281,7 +281,7 @@ function index(this: any) {
   );
 }
 
-export default index;
+export default Index;
 
 export async function getServerSideProps(context: any) {
   const providers = await getProviders();

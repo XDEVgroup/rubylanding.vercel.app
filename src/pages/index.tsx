@@ -40,9 +40,9 @@ const Home: NextPage = () => {
           name="description"
           content="Ruby Finance boekhouden en administatie, online boekhouden voor ZZp'ers en eenmanszaken voor een lage prijs en kwaliteit service."
         />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
-          http-equiv="Content-Type"
+          httpEquiv="Content-Type"
           content="text/html; charset=ISO-8859-1"
         />
 

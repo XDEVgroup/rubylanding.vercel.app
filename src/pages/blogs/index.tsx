@@ -38,9 +38,9 @@ function BlogId() {
           name="description"
           content={`Ruby Finance, Blogs over de laatste trends voor boekhouding en belastingzaken`}
         />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta
-          http-equiv="Content-Type"
+          httpEquiv="Content-Type"
           content="text/html; charset=ISO-8859-1"
         />
       </Head>
