@@ -12,10 +12,8 @@ function Login({ providers }: any) {
   if (session.data?.user?.id) {
     if (!session.data?.user?.id?.includes("cld203pga000ov3w4lkvakz7i") || !session.data.user?.id?.includes("cld31y4uz0000me08352v8lcs")) {
       signOut();
-    } else {
-    }
-  } else {
-  }
+    } 
+  } 
 
   console.log(providers);
   return (
