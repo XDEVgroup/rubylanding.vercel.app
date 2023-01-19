@@ -10,7 +10,7 @@ function Login({ providers }: any) {
   const session = useSession();
 
   if (session.data?.user?.id) {
-    if (!session.data?.user?.id?.includes("cld203pga000ov3w4lkvakz7i")) {
+    if (!session.data?.user?.id?.includes("cld203pga000ov3w4lkvakz7i")|| !session?.data?.user?.id?.includes("cld31y4uz0000me08352v8lcs")) {
       signOut();
     } else {
     }
@@ -131,7 +131,7 @@ export async function getServerSideProps(context: any) {
   const providers = await getProviders();
   const session = await getSession(context);
 
-  if (session?.user?.id?.includes("cld203pga000ov3w4lkvakz7i")) {
+  if (session?.user?.id?.includes("cld203pga000ov3w4lkvakz7i") || !session?.user?.id?.includes("cld31y4uz0000me08352v8lcs")) {
     return {
       redirect: {
         destination: "/admin/dashboard",
