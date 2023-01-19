@@ -76,7 +76,7 @@ function Index(this: any) {
       {" "}
       <HeaderBlack />
       <Header />
-      <div className="flex">
+      <div className="grid grid-cols-1 lg:flex">
         <div className="min-h-screen  w-full justify-center p-2 lg:w-4/6 lg:p-4">
           <div>
             <div className="m-auto mt-6 w-full cursor-pointer lg:w-8/12">
