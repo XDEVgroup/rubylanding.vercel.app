@@ -106,7 +106,6 @@ function Index(this: any) {
                       </p>
                       <input
                         type="date"
-                        onChange={(e) => setDate(e.target.value)}
                         className="ml-5 text-sm font-normal text-gray-700 lg:text-base"
                       />
                     </div>
