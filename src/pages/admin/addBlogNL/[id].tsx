@@ -84,7 +84,7 @@ function Index(this: any) {
                 NL
                 <Image
                   src="/netherlands.png"
-                  alt=""
+                  alt="Nederland"
                   height={16}
                   width={24}
                   className=" ml-1"
