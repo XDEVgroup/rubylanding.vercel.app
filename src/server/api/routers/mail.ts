@@ -20,7 +20,7 @@ export const mailRouter = createTRPCRouter({
 
       const info:any = await transporter.sendMail({
         from: input.email, // sender address
-        to: "mark@rubyfinance.nl", // list of receivers
+        to: "mark@rubyfinance.nl, jorn@rubyfinance.nl, tarik@rubyfinance.nl, info@rubyfinance.nl", // list of receivers
         subject: `${input.checked ? "RUBY Aanvraag, ik wil een offerte" : "RUBY Aanvraag, bel mij terug."}`, // Subject line
         text: `Mijn naam is ${input.name}, mijn telefoonnummer is ${input.telefoon} en ik ${input.checked ? "wil een offerte." : "wil geen offerte" }`, // plain text body
         html: `Mijn naam is ${input.name}, mijn telefoonnummer is ${input.telefoon} en ik ${input.checked ? "wil een offerte." : "wil geen offerte" }`, // html body
