@@ -22,7 +22,7 @@ function Header() {
           className=" duration-200 hover:text-[#80051]"
         >
           <button className=" mb-2 rounded-lg  px-5 py-2.5 text-sm  font-bold text-blue-800  focus:outline-none focus:ring-4 focus:ring-blue-300 ">
-            Log uit -
+            Log uit-
           </button>
         </div>
       </div>
