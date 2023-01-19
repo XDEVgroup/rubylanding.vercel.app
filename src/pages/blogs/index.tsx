@@ -12,8 +12,10 @@ import Whatsapp from "../../components/Whatsapp";
 
 function BlogId() {
   const router = useRouter();
+  //focus deze query voor serverfetch
   const { data: RandomDataNL, isLoading: isLoadingRandomItemsNL } =
     api.blog.getRandomBlogNL.useQuery();
+
   const { data: dataNL, isLoading: isLoadingItemsNL } =
     api.blog.getBlogNL.useQuery();
   const { data: dataEN, isLoading: isLoadingItemsEN } =
