@@ -315,7 +315,7 @@ function BlogId() {
                 <div className="w-full p-6 lg:w-2/12 lg:p-0">
                   <Link href="/">
                     <div className="flex p-6 lg:p-0">
-                      <button className="mt-4 w-full rounded-full border border-black bg-black bg-transparent p-2 text-white transition hover:bg-white hover:text-black">
+                      <button className="mt-4 w-full rounded-full border border-black bg-black p-2 text-white transition hover:bg-white hover:text-black">
                         Plan een gesprek
                       </button>
                     </div>
