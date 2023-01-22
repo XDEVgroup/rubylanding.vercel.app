@@ -10,7 +10,6 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
       author: z.string(),
       text: z.string(),
       image: z.string(),
-      date: z.string(),
      }))
       .mutation(async ({ ctx, input }) => {
         const data = await ctx.prisma.blog.create({
@@ -19,7 +18,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
             author: input.author,
             text: input.text,
             image: input.image,
-            date: input.date,
+            
             language: "NL"
           }
         });
@@ -33,7 +32,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
       author: z.string(),
       text: z.string(),
       image: z.string(),
-      date: z.string(),
+     
      }))
       .mutation(async ({ ctx, input }) => {
         const data = await ctx.prisma.blog.update({
@@ -45,7 +44,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
             author: input.author,
             text: input.text,
             image: input.image,
-            date: input.date,
+          
             language: "NL"
           }
         });
@@ -57,7 +56,6 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
         author: z.string(),
         text: z.string(),
         image: z.string(),
-        date: z.string(),
         
        })).mutation(async ({ ctx,input }) => {
         const data = await ctx.prisma.blog.create({
@@ -66,7 +64,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
             author: input.author,
             text: input.text,
             image: input.image,
-            date: input.date,
+            
   
             language: "EN"
           }
@@ -81,7 +79,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
       author: z.string(),
       text: z.string(),
       image: z.string(),
-      date: z.string(),
+     
      }))
       .mutation(async ({ ctx, input }) => {
         const data:any = await ctx.prisma.blog.update({
@@ -93,7 +91,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
             author: input.author,
             text: input.text,
             image: input.image,
-            date: input.date,
+           
             language: "EN"
           }
         });
@@ -102,6 +100,12 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
     getBlogNL: publicProcedure.query(async ({ ctx }) => {
       const data = await ctx.prisma.blog.findMany({
+        orderBy: [
+          {
+            date: 'asc',
+          },
+          
+        ],
         where:{
           language: "NL"
         }
@@ -142,7 +146,14 @@ getRandomBlogEN: publicProcedure.query(async ({ ctx }) => {
 }),
 
   getBlogEN: publicProcedure.query(async ({ ctx }) => {
-    const data = await ctx.prisma.blog.findMany({where:{
+    const data = await ctx.prisma.blog.findMany({
+      orderBy: [
+        {
+          date: 'asc',
+        },
+        
+      ],
+      where:{
       language: "EN"
     }});
     return data

@@ -13,6 +13,7 @@ function BlogENindex() {
     api.blog.getRandomBlogEN.useQuery();
     const { data: dataEN, isLoading: isLoadingItemsEN } =
     api.blog.getBlogEN.useQuery();
+   
     const splittedAll = RandomDataEN?.text.split("/n");
   const textMapped = splittedAll?.map((field: string, index: number) => {
     return (
@@ -52,9 +53,8 @@ function BlogENindex() {
                         {RandomDataEN?.author}
                       </p>
                       <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
-                        {RandomDataEN?.date
-                          ? RandomDataEN?.date
-                          : "1-1-2023"}
+                      {RandomDataEN?.date.toLocaleDateString()}
+                         
                       </p>
                     </div>
                   </div>
@@ -111,11 +111,11 @@ function BlogENindex() {
       </Link>
       {dataEN?.map((data: any, index: number) => {
         return (
-          <>
+          <div key={index}>
             {data.title.includes(router.query.id) && (
               <div
                 className="-ml-0 hidden lg:-ml-40 lg:grid"
-                key={index}
+                
               >
                 <div className="flex-col items-center">
                   {data?.author == "Mark Teekens" ? (
@@ -140,7 +140,7 @@ function BlogENindex() {
                 </h3>
               </div>
             )}
-          </>
+          </div>
         );
       })}
       {dataEN?.map((data: any, index: number) => {

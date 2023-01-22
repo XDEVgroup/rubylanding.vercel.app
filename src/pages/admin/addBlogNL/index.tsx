@@ -15,7 +15,6 @@ function Index(this: any) {
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
   const [image, setImage] = useState("/manruby.png");
-  const [date, setDate] = useState("");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
 
@@ -41,7 +40,7 @@ function Index(this: any) {
         author: author,
         text: text,
         image: image,
-        date: date,
+        
       });
       router.push("/admin/dashboard");
     } else {
@@ -75,13 +74,13 @@ function Index(this: any) {
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     {author == "Mark Teekens" ? (
-                      <Image height={50} width={50}
+                      <Image height={600} width={600}
                         src="/mark.jpg"
                         alt="mark"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                       />
                     ) : (
-                      <Image height={50} width={50}
+                      <Image height={600} width={600}
                         src="/jorn.jpeg"
                         alt="jorn"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -100,13 +99,7 @@ function Index(this: any) {
                           <option value={"Mark Teekens"}>Mark Teekens</option>
                         </select>
                       </p>
-                      <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
-                        {date}
-                      </p>
-                      <input
-                        type="date"
-                        className="ml-5 text-sm font-normal text-gray-700 lg:text-base"
-                      />
+                     
                     </div>
                   </div>
                   <div className="mt-2 flex space-x-2">
@@ -140,7 +133,7 @@ function Index(this: any) {
               </div>
               {!isToggled && (
                 <div className="mt-4 flex h-52 max-w-4xl">
-                  <Image height={50} width={50}
+                  <Image height={600} width={600}
                     onClick={() => setIsToggled(true)}
                     src={image}
                     alt={`${image && "blog_banner"}`}
@@ -197,13 +190,13 @@ function Index(this: any) {
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
-                        <Image height={50} width={50}
+                        <Image height={600} width={600}
                           src="/mark.jpg"
                           alt="mark"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                         />
                       ) : (
-                        <Image height={50} width={50}
+                        <Image height={600} width={600}
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -228,13 +221,13 @@ function Index(this: any) {
                   <div className="w-4/6">
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
-                        <Image height={50} width={50}
+                        <Image height={600} width={600}
                           src="/mark.jpg"
                           alt="mark"
                           className="h-6 w-6 rounded-full object-cover "
                         />
                       ) : (
-                        <Image height={50} width={50}
+                        <Image height={600} width={600}
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-6 w-6 rounded-full object-cover "
@@ -250,7 +243,7 @@ function Index(this: any) {
                   </div>
 
                   <div className="w-2/6">
-                    <Image height={50} width={50}
+                    <Image height={600} width={600}
                       src={data.image}
                       alt="blog_banner_nieuw"
                       className="ml-6 h-14 w-14 rounded-md object-cover "

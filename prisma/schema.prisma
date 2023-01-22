@@ -71,7 +71,7 @@ model Blog {
     author   String
     text     String
     image    String
-    date     String
+    date     DateTime @default(now())
     language String
 }
 

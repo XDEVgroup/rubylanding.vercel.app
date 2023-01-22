@@ -15,7 +15,6 @@ function Index(this: any) {
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
   const [image, setImage] = useState("/manruby.png");
-  const [date, setDate] = useState("");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
 
@@ -41,7 +40,6 @@ function Index(this: any) {
         author: author,
         text: text,
         image: image,
-        date: date,
       });
       router.push("/admin/dashboard");
     } else {
@@ -77,16 +75,18 @@ function Index(this: any) {
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     {author == "Mark Teekens" ? (
-                      <img
+                      <Image
                         src="/mark.jpg"
                         alt="mark"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
+                        height={600} width={600}
                       />
                     ) : (
-                      <img
+                      <Image
                         src="/jorn.jpeg"
                         alt="jorn"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
+                        height={600} width={600}
                       />
                     )}
 
@@ -102,13 +102,7 @@ function Index(this: any) {
                           <option value={"Mark Teekens"}>Mark Teekens</option>
                         </select>
                       </p>
-                      <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
-                        {date}
-                      </p>
-                      <input
-                        type="date"
-                        className="ml-5 text-sm font-normal text-gray-700 lg:text-base"
-                      />
+                      
                     </div>
                   </div>
                   <div className="mt-2 flex space-x-2">
@@ -142,11 +136,12 @@ function Index(this: any) {
               </div>
               {!isToggled && (
                 <div className="mt-4 flex h-52 max-w-4xl">
-                  <img
+                  <Image
                     onClick={() => setIsToggled(true)}
                     src={image}
                     alt={`${image && "blog_banner"}`}
                     className="mt-4 w-full object-cover hover:border hover:border-blue-400 "
+                    height={600} width={600}
                   />
                 </div>
               )}
@@ -202,16 +197,18 @@ function Index(this: any) {
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
-                        <img
+                        <Image
                           src="/mark.jpg"
                           alt="mark"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
+                          height={600} width={600}
                         />
                       ) : (
-                        <img
+                        <Image
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
+                          height={600} width={600}
                         />
                       )}
                       <div className="mt-4">
@@ -233,16 +230,18 @@ function Index(this: any) {
                   <div className="w-4/6">
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
-                        <img
+                        <Image
                           src="/mark.jpg"
                           alt="mark"
                           className="h-6 w-6 rounded-full object-cover "
+                          height={600} width={600}
                         />
                       ) : (
-                        <img
+                        <Image
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-6 w-6 rounded-full object-cover "
+                          height={600} width={600}
                         />
                       )}
                       <p className=" ml-2 font-semibold">{data.author}</p>
@@ -255,10 +254,11 @@ function Index(this: any) {
                   </div>
 
                   <div className="w-2/6">
-                    <img
+                    <Image
                       src={data.image}
                       alt="blog_banner_nieuw"
                       className="ml-6 h-14 w-14 rounded-md object-cover "
+                      height={600} width={600}
                     />
                   </div>
                   <div className="mt-4">

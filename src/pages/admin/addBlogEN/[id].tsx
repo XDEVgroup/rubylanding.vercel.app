@@ -15,7 +15,6 @@ function Index(this: any) {
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
   const [image, setImage] = useState("/manruby.png");
-  const [date, setDate] = useState("");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
 
@@ -47,7 +46,6 @@ function Index(this: any) {
     setTitle(getSpecdataEN?.title as any);
     setAuthor(getSpecdataEN?.author as any);
     setText(getSpecdataEN?.text as any);
-    setDate(getSpecdataEN?.date as any);
     setImage(getSpecdataEN?.image as any);
   }, [getSpecdataEN]);
 
@@ -59,7 +57,6 @@ function Index(this: any) {
         author: author,
         text: text,
         image: image,
-        date: date,
       });
       router.push("/admin/addBlogEN");
     } else {
@@ -119,9 +116,7 @@ function Index(this: any) {
                           <option value={"Mark Teekens"}>Mark Teekens</option>
                         </select>
                       </p>
-                      <p className="ml-4 text-sm font-normal text-gray-700 lg:text-base">
-                        {date ? date : "01-01-2023"}
-                      </p>
+                      
                     </div>
                   </div>
                   <div className="mt-2 flex space-x-2">

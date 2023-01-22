@@ -84,7 +84,7 @@ function BlogId() {
                                     </p>
                                     <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
                                       {" "}
-                                      {data.date}
+                                      {data.date.toLocaleDateString()}
                                     </p>
                                   </div>
                                 </div>
@@ -225,7 +225,7 @@ function BlogId() {
                 <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
                   {dataEN?.map((data: any, index: number) => {
                     const splittedAll = data.text.split("/n");
-                    const day = new Date(data.date);
+                  
                     const textMapped = splittedAll?.map(
                       (field: string, index: number) => {
                         return (
@@ -264,7 +264,7 @@ function BlogId() {
                                     </p>
                                     <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
                                       {" "}
-                                      {data.date}
+                                      {data.date.toLocaleDateString()}
                                     </p>
                                   </div>
                                 </div>

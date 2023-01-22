@@ -52,9 +52,7 @@ function BlogNLindex() {
                         {RandomDataNL?.author}
                       </p>
                       <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
-                        {RandomDataNL?.date
-                          ? RandomDataNL?.date
-                          : "1-1-2023"}
+                        {RandomDataNL?.date.toLocaleDateString()}
                       </p>
                     </div>
                   </div>
