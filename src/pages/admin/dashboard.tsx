@@ -48,6 +48,11 @@ function dashboard() {
             </button>
           </a>
         </div>
+        <div className="flex flex-col mt-6 justify-center items-center">
+          <h2 className="font-bold">Updates & Fixes</h2>
+          <p>-datums automatish aangemaakt </p>
+          <p>-blogs gesorteerd op aflopende datums</p>
+        </div>
       </div>
       <Footer />
     </>
