@@ -36,7 +36,7 @@ function BlogId() {
         <Header />
         {isLoadingItems ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
-            <Image height={600} width={600} src="/rubygif.gif" alt="" className="h-10 animate-pulse" />
+            <Image height={50} width={100} src="/rubygif.gif" alt="" className="h-10 animate-pulse" />
           </div>
         ) : (
           <div>
