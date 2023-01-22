@@ -132,6 +132,15 @@ getRandomBlogNL: publicProcedure.query(async ({ ctx }) => {
  return data[Math.floor(Math.random()*data.length)]
 }),
 
+getRandomBlogEN: publicProcedure.query(async ({ ctx }) => {
+  const data = await ctx.prisma.blog.findMany({
+    where:{
+      language: "EN"
+    }
+  });
+ return data[Math.floor(Math.random()*data.length)]
+}),
+
   getBlogEN: publicProcedure.query(async ({ ctx }) => {
     const data = await ctx.prisma.blog.findMany({where:{
       language: "EN"

@@ -175,9 +175,14 @@ function Index(this: any) {
               )}
 
               <div className=" mt-10 flex flex-col text-xl text-gray-700 ">
-                <button className="mb-2 w-10 rounded-lg border border-black bg-gray-100">
-                  /n
+              <div className="flex">
+                Markdown Guide
+                <a href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
+                <button className="underline ml-1">
+                 Klik Hier
                 </button>
+                </a>
+                </div>
                 <textarea
                   id="textarea1"
                   className=" h-screen rounded p-2 hover:border hover:border-blue-400"

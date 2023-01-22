@@ -64,11 +64,10 @@ function Index(this: any) {
             <div className="m-auto mt-6 w-full cursor-pointer lg:w-8/12">
               <div className="mb-2 flex items-center">
                 NL
-                <Image
+                <Image height={16} width={24}
                   src="/netherlands.png"
                   alt=""
-                  height={16}
-                  width={24}
+                 
                   className=" ml-1"
                 />
               </div>
@@ -76,13 +75,13 @@ function Index(this: any) {
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     {author == "Mark Teekens" ? (
-                      <img
+                      <Image height={50} width={50}
                         src="/mark.jpg"
                         alt="mark"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                       />
                     ) : (
-                      <img
+                      <Image height={50} width={50}
                         src="/jorn.jpeg"
                         alt="jorn"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -141,11 +140,11 @@ function Index(this: any) {
               </div>
               {!isToggled && (
                 <div className="mt-4 flex h-52 max-w-4xl">
-                  <img
+                  <Image height={50} width={50}
                     onClick={() => setIsToggled(true)}
                     src={image}
                     alt={`${image && "blog_banner"}`}
-                    className="mt-4 w-full object-cover hover:border hover:border-blue-400 "
+                    className="mt-4 w-full object-cover hover:border hover:border-blue-400 " 
                   />
                 </div>
               )}
@@ -161,9 +160,14 @@ function Index(this: any) {
               )}
 
               <div className=" mt-10 flex flex-col text-xl text-gray-700 ">
-                <button className="mb-2 w-10 rounded-lg border border-black bg-gray-100">
-                  /n
+              <div className="flex">
+                Markdown Guide
+                <a href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
+                <button className="underline ml-1">
+                 Klik Hier
                 </button>
+                </a>
+                </div>  
                 <textarea
                   id="textarea1"
                   className=" h-screen rounded p-2 hover:border hover:border-blue-400"
@@ -193,13 +197,13 @@ function Index(this: any) {
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
-                        <img
+                        <Image height={50} width={50}
                           src="/mark.jpg"
                           alt="mark"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                         />
                       ) : (
-                        <img
+                        <Image height={50} width={50}
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -224,13 +228,13 @@ function Index(this: any) {
                   <div className="w-4/6">
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
-                        <img
+                        <Image height={50} width={50}
                           src="/mark.jpg"
                           alt="mark"
                           className="h-6 w-6 rounded-full object-cover "
                         />
                       ) : (
-                        <img
+                        <Image height={50} width={50}
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-6 w-6 rounded-full object-cover "
@@ -246,7 +250,7 @@ function Index(this: any) {
                   </div>
 
                   <div className="w-2/6">
-                    <img
+                    <Image height={50} width={50}
                       src={data.image}
                       alt="blog_banner_nieuw"
                       className="ml-6 h-14 w-14 rounded-md object-cover "

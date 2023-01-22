@@ -36,7 +36,7 @@ function BlogId() {
         <Header />
         {isLoadingItems ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
-            <img src="/rubygif.gif" alt="" className="h-10 animate-pulse" />
+            <Image height={600} width={600} src="/rubygif.gif" alt="" className="h-10 animate-pulse" />
           </div>
         ) : (
           <div>
@@ -66,13 +66,13 @@ function BlogId() {
                               <div className="flex justify-between">
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
-                                    <img
+                                    <Image height={600} width={600}
                                       src="/mark.jpg"
                                       alt="mark"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                                     />
                                   ) : (
-                                    <img
+                                    <Image height={600} width={600}
                                       src="/jorn.jpeg"
                                       alt="jorn"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -116,7 +116,7 @@ function BlogId() {
                               </div>
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
-                              <img
+                              <Image height={600} width={600}
                                 src={data.image}
                                 alt="blog_banner"
                                 className="mt-4 w-full object-cover "
@@ -135,7 +135,7 @@ function BlogId() {
                 <div className="w-full p-6 lg:w-2/12 lg:p-0">
                   <Link href="/#contact">
                     <div className="flex p-6 lg:p-0">
-                      <button className="mt-4 w-full rounded-full border border-black bg-black bg-transparent p-2 text-white transition hover:bg-white hover:text-black">
+                      <button className="mt-4 w-full rounded-full border border-black bg-black p-2 text-white transition hover:bg-white hover:text-black">
                         Plan een gesprek
                       </button>
                     </div>
@@ -150,13 +150,13 @@ function BlogId() {
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
-                                <img
+                                <Image height={600} width={600}
                                   src="/mark.jpg"
                                   alt="mark"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
                                 />
                               ) : (
-                                <img
+                                <Image height={600} width={600}
                                   src="/jorn.jpeg"
                                   alt="jorn"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
@@ -182,13 +182,13 @@ function BlogId() {
                             <div className="w-4/6">
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
-                                  <img
+                                  <Image height={600} width={600}
                                     src="/mark.jpg"
                                     alt="mark"
                                     className="h-6 w-6 rounded-full object-cover "
                                   />
                                 ) : (
-                                  <img
+                                  <Image height={600} width={600}
                                     src="/jorn.jpeg"
                                     alt="jorn"
                                     className="h-6 w-6 rounded-full object-cover "
@@ -206,7 +206,7 @@ function BlogId() {
                             </div>
 
                             <div className="w-2/6">
-                              <img
+                              <Image height={600} width={600}
                                 src={data.image}
                                 alt="blog_banner_nieuw"
                                 className="ml-6 h-14 w-14 rounded-md object-cover "
@@ -246,13 +246,13 @@ function BlogId() {
                               <div className="flex justify-between">
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
-                                    <img
+                                    <Image height={600} width={600}
                                       src="/mark.jpg"
                                       alt="mark"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                                     />
                                   ) : (
-                                    <img
+                                    <Image height={600} width={600}
                                       src="/jorn.jpeg"
                                       alt="jorn"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -296,7 +296,7 @@ function BlogId() {
                               </div>
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
-                              <img
+                              <Image height={600} width={600}
                                 src={data.image}
                                 alt="blog_banner"
                                 className="mt-4 w-full object-cover "
@@ -330,13 +330,13 @@ function BlogId() {
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
-                                <img
+                                <Image height={600} width={600}
                                   src="/mark.jpg"
                                   alt="mark"
                                   className="mt-6 h-20 rounded-full object-cover "
                                 />
                               ) : (
-                                <img
+                                <Image height={600} width={600}
                                   src="/jorn.jpeg"
                                   alt="jorn"
                                   className="mt-6 h-20 rounded-full object-cover "
@@ -362,13 +362,13 @@ function BlogId() {
                             <div className="w-4/6">
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
-                                  <img
+                                  <Image height={600} width={600}
                                     src="/mark.jpg"
                                     alt="mark"
                                     className="h-6 w-6 rounded-full object-cover "
                                   />
                                 ) : (
-                                  <img
+                                  <Image height={600} width={600}
                                     src="/jorn.jpeg"
                                     alt="jorn"
                                     className="h-6 w-6 rounded-full object-cover "
@@ -386,7 +386,7 @@ function BlogId() {
                             </div>
 
                             <div className="w-2/6">
-                              <img
+                              <Image height={600} width={600}
                                 src={data.image}
                                 alt="blog_banner_nieuw"
                                 className="ml-6 h-14 w-14 rounded-md object-cover "
