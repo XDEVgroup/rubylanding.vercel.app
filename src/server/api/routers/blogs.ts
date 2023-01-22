@@ -102,7 +102,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
       const data = await ctx.prisma.blog.findMany({
         orderBy: [
           {
-            date: 'asc',
+            date: 'desc',
           },
           
         ],
@@ -149,7 +149,7 @@ getRandomBlogEN: publicProcedure.query(async ({ ctx }) => {
     const data = await ctx.prisma.blog.findMany({
       orderBy: [
         {
-          date: 'asc',
+          date: 'desc',
         },
         
       ],
