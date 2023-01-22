@@ -10,7 +10,7 @@ const config = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["i.imgur.com", "images.ctfassets.net", "images.pexels.com", "s3.us-west-2.amazonaws.com"]
+    domains: ["i.imgur.com", "images.ctfassets.net", "images.pexels.com", "s3.us-west-2.amazonaws.com", "cdn.leonardo.ai"]
   },
   i18n: {
     locales: ["en", 'nl-NL'],
