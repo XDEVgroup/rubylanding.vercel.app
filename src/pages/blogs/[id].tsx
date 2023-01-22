@@ -333,13 +333,13 @@ function BlogId() {
                                 <Image height={600} width={600}
                                   src="/mark.jpg"
                                   alt="mark"
-                                  className="mt-6 h-20 rounded-full object-cover "
+                                  className="mt-6 h-20 w-20 rounded-full object-cover "
                                 />
                               ) : (
                                 <Image height={600} width={600}
                                   src="/jorn.jpeg"
                                   alt="jorn"
-                                  className="mt-6 h-20 rounded-full object-cover "
+                                  className="mt-6 h-20 w-20 rounded-full object-cover "
                                 />
                               )}
                               <div className="mt-4">
