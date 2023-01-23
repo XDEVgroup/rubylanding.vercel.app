@@ -33,10 +33,11 @@ function dashboard() {
           </Link>
         </div>
         <div className="mt-4 flex gap-2">
-          <button className="mr-2 ml-2 mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-400 px-5 py-2.5 text-sm font-medium text-white    ">
-            Blog PUMP-AI (soon)
-          </button>
-
+          <Link href="/admin/blogPumpAI">
+            <button className="mr-2 ml-2 mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-400 px-5 py-2.5 text-sm font-medium text-white    ">
+              Blog PUMP-AI (soon)
+            </button>
+          </Link>
           <Link href="/">
             <button className="mr-2 mb-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Ruby Landing
@@ -48,7 +49,7 @@ function dashboard() {
             </button>
           </a>
         </div>
-        <div className="flex flex-col mt-6 justify-center items-center">
+        <div className="mt-6 flex flex-col items-center justify-center">
           <h2 className="font-bold">Updates & Fixes</h2>
           <p>-datums automatish aangemaakt </p>
           <p>-blogs gesorteerd op aflopende datums</p>
@@ -65,7 +66,7 @@ export async function getServerSideProps(context: any) {
   const providers = await getProviders();
   const session = await getSession(context);
 
-  if (!session?.user?.id?.includes("cld356sj70000lf086717vww3") ) {
+  if (!session?.user?.id?.includes("cld356sj70000lf086717vww3")) {
     return {
       redirect: {
         destination: "/admin",
