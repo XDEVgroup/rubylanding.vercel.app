@@ -51,6 +51,7 @@ function dashboard() {
         </div>
         <div className="mt-6 flex flex-col items-center justify-center">
           <h2 className="font-bold">Updates & Fixes</h2>
+          <p>-blog AI NL Beta toegevoegd</p>
           <p>-datums automatish aangemaakt </p>
           <p>-blogs gesorteerd op aflopende datums</p>
         </div>
