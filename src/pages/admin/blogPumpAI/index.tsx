@@ -170,7 +170,7 @@ function Index(this: any) {
                 </div>
                 <div className="mt-4 flex flex-col  text-[#2C234D]">
                   <div className="flex flex-col">
-                    <label className="font-bold">Keyword</label>
+                    <label className="font-bold">Keyword(s)</label>
                     <input
                       className="rounded-md border border-gray-400 p-1"
                       value={keyword}
