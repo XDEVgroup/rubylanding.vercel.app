@@ -12,7 +12,7 @@ import HeaderBlack from "../../../components/HeaderBlack";
 
 function Index(this: any) {
   const [keyword, setKeyword] = useState("Vul een keyword in");
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState<any>();
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
   const [image, setImage] = useState("/manruby.png");
@@ -78,7 +78,7 @@ function Index(this: any) {
   }, [router.locale]);
 
   const generateText = () => {
-    mutateAIText({ topic: title });
+    mutateAIText({ topic: title as any });
   };
 
   useEffect(() => {

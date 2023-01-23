@@ -13,7 +13,7 @@ const openai = new OpenAIApi(configuration)
 
 export const AIRouter = createTRPCRouter({
   addBlogAI: protectedProcedure
-    .input(z.object({topic: z.string()}))
+    .input(z.object({topic: z.any()}))
     .mutation(async ({input}) => {
       const res = await openai.createCompletion({
         model: 'text-davinci-003',
@@ -29,7 +29,7 @@ export const AIRouter = createTRPCRouter({
     }),
 
     addBlogAIText: protectedProcedure
-    .input(z.object({topic: z.string()}))
+    .input(z.object({topic: z.any()}))
     .mutation(async ({input}) => {
       const res = await openai.createCompletion({
         model: 'text-davinci-003',
