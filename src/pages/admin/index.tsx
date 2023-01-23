@@ -25,6 +25,7 @@ function Login({ providers }: any) {
         <div className="w-full max-w-md space-y-8">
           <div className="flex flex-col items-center">
             <Image
+              loading="eager"
               height={80}
               width={100}
               className="cursor-pointer sm:h-10"

@@ -36,6 +36,7 @@ function BlogAllIndex() {
                     <div className="flex items-center">
                       {RandomDataALL?.author == "Mark Teekens" ? (
                         <Image
+                          loading="eager"
                           src="/mark.jpg"
                           alt="mark"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -44,6 +45,7 @@ function BlogAllIndex() {
                         />
                       ) : (
                         <Image
+                          loading="eager"
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -90,6 +92,7 @@ function BlogAllIndex() {
                 </div>
                 <div className="mt-4 flex h-52 max-w-4xl">
                   <Image
+                    loading="eager"
                     src={RandomDataALL?.image}
                     alt="blog_banner"
                     className="mt-4 w-full object-cover"
@@ -122,6 +125,7 @@ function BlogAllIndex() {
                   <div className="flex-col items-center">
                     {data?.author == "Mark Teekens" ? (
                       <Image
+                        loading="eager"
                         src="/mark.jpg"
                         alt="mark"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -130,6 +134,7 @@ function BlogAllIndex() {
                       />
                     ) : (
                       <Image
+                        loading="eager"
                         src="/jorn.jpeg"
                         alt="jorn"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -158,6 +163,7 @@ function BlogAllIndex() {
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
                         <Image
+                          loading="eager"
                           src="/mark.jpg"
                           alt="mark"
                           className="h-6 w-6 rounded-full object-cover "
@@ -166,6 +172,7 @@ function BlogAllIndex() {
                         />
                       ) : (
                         <Image
+                          loading="eager"
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-6 w-6 rounded-full object-cover "
@@ -184,6 +191,7 @@ function BlogAllIndex() {
 
                   <div className="w-2/6">
                     <Image
+                      loading="eager"
                       src={data.image}
                       alt="blog_banner_nieuw"
                       className="ml-6 h-14 w-14 rounded-md object-cover "

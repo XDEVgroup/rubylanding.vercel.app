@@ -7,6 +7,7 @@ function Whatsapp() {
     <div>
       <Link href="https://api.whatsapp.com/send?phone=31687954360">
         <Image
+          loading="eager"
           className="cursor-pointer transition ease-in-out hover:scale-105"
           src={"/whatsapp.png"}
           alt="whatsapp"

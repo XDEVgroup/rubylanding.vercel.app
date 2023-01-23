@@ -16,6 +16,7 @@ function Header({ scrolltoId }: any) {
       setFlag(
         <div>
           <Image
+            loading="eager"
             className=""
             src={"/england.png"}
             alt="whatsapp"
@@ -28,6 +29,7 @@ function Header({ scrolltoId }: any) {
       setFlag(
         <div>
           <Image
+            loading="eager"
             className=""
             src={"/netherlands.png"}
             alt="whatsapp"
@@ -42,7 +44,13 @@ function Header({ scrolltoId }: any) {
     <header className="flex items-center justify-between p-6 px-4 lg:p-3 lg:py-5 lg:px-10">
       <Link href="/">
         <div className="w-20 lg:w-40">
-          <Image width={150} height={150} src="/Ruby_logo.png" alt="" />
+          <Image
+            loading="eager"
+            width={150}
+            height={150}
+            src="/Ruby_logo.png"
+            alt=""
+          />
         </div>
       </Link>
       <div className="flex items-center sm:gap-0 lg:gap-20 lg:p-4">

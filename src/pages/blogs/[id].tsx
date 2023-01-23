@@ -34,6 +34,7 @@ function BlogId() {
         {isLoadingItems ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
             <Image
+              loading="eager"
               height={50}
               width={100}
               src="/rubygif.gif"
@@ -70,6 +71,7 @@ function BlogId() {
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
                                     <Image
+                                      loading="eager"
                                       height={600}
                                       width={600}
                                       src="/mark.jpg"
@@ -78,6 +80,7 @@ function BlogId() {
                                     />
                                   ) : (
                                     <Image
+                                      loading="eager"
                                       height={600}
                                       width={600}
                                       src="/jorn.jpeg"
@@ -124,6 +127,7 @@ function BlogId() {
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
                               <Image
+                                loading="eager"
                                 height={600}
                                 width={600}
                                 src={data.image}
@@ -160,6 +164,7 @@ function BlogId() {
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
                                 <Image
+                                  loading="eager"
                                   height={600}
                                   width={600}
                                   src="/mark.jpg"
@@ -168,6 +173,7 @@ function BlogId() {
                                 />
                               ) : (
                                 <Image
+                                  loading="eager"
                                   height={600}
                                   width={600}
                                   src="/jorn.jpeg"
@@ -196,6 +202,7 @@ function BlogId() {
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
                                   <Image
+                                    loading="eager"
                                     height={600}
                                     width={600}
                                     src="/mark.jpg"
@@ -204,6 +211,7 @@ function BlogId() {
                                   />
                                 ) : (
                                   <Image
+                                    loading="eager"
                                     height={600}
                                     width={600}
                                     src="/jorn.jpeg"
@@ -224,6 +232,7 @@ function BlogId() {
 
                             <div className="w-2/6">
                               <Image
+                                loading="eager"
                                 height={600}
                                 width={600}
                                 src={data.image}
@@ -266,6 +275,7 @@ function BlogId() {
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
                                     <Image
+                                      loading="eager"
                                       height={600}
                                       width={600}
                                       src="/mark.jpg"
@@ -274,6 +284,7 @@ function BlogId() {
                                     />
                                   ) : (
                                     <Image
+                                      loading="eager"
                                       height={600}
                                       width={600}
                                       src="/jorn.jpeg"
@@ -320,6 +331,7 @@ function BlogId() {
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
                               <Image
+                                loading="eager"
                                 height={600}
                                 width={600}
                                 src={data.image}
@@ -356,6 +368,7 @@ function BlogId() {
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
                                 <Image
+                                  loading="eager"
                                   height={600}
                                   width={600}
                                   src="/mark.jpg"
@@ -364,6 +377,7 @@ function BlogId() {
                                 />
                               ) : (
                                 <Image
+                                  loading="eager"
                                   height={600}
                                   width={600}
                                   src="/jorn.jpeg"
@@ -392,6 +406,7 @@ function BlogId() {
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
                                   <Image
+                                    loading="eager"
                                     height={600}
                                     width={600}
                                     src="/mark.jpg"
@@ -400,6 +415,7 @@ function BlogId() {
                                   />
                                 ) : (
                                   <Image
+                                    loading="eager"
                                     height={600}
                                     width={600}
                                     src="/jorn.jpeg"
@@ -420,6 +436,7 @@ function BlogId() {
 
                             <div className="w-2/6">
                               <Image
+                                loading="eager"
                                 height={600}
                                 width={600}
                                 src={data.image}

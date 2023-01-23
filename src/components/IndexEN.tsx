@@ -33,6 +33,7 @@ function IndexEN() {
           </div>
           <div className="">
             <Image
+              loading="eager"
               className="ml-10 transform p-10  drop-shadow-lg transition duration-700 ease-in-out  hover:-rotate-12 hover:scale-125  lg:ml-0 lg:p-0"
               width={300}
               height={300}
@@ -67,6 +68,7 @@ function IndexEN() {
         <div className="grid grid-cols-1 justify-center gap-20 pt-14 lg:flex">
           <div className="flex flex-col items-center gap-3  text-center">
             <Image
+              loading="eager"
               src="/feature-3.png"
               alt="man_idee"
               width={160}
@@ -87,6 +89,7 @@ function IndexEN() {
           </div>
           <div className="flex flex-col items-center text-center">
             <Image
+              loading="eager"
               src="/feature-2.png"
               alt="vrouw_idee"
               width={160}
@@ -105,6 +108,7 @@ function IndexEN() {
           </div>
           <div className="flex flex-col items-center text-center">
             <Image
+              loading="eager"
               src="/feature-1.png"
               alt="man_zwaait"
               width={160}
@@ -298,6 +302,7 @@ function IndexEN() {
 
             <div className="mb-6 px-10 lg:px-0">
               <Image
+                loading="eager"
                 src="/manruby.png"
                 alt="man_drukt_op_knop"
                 height={300}
@@ -315,6 +320,7 @@ function IndexEN() {
             <div className="flex items-center justify-center">
               <div className="hidden lg:-mt-80 lg:flex lg:pr-20">
                 <Image
+                  loading="eager"
                   src="/realTime.png"
                   alt="computer"
                   height={300}
@@ -324,6 +330,7 @@ function IndexEN() {
               <ContactForm scrolltoId={scrolltoId} />
               <div className="hidden lg:flex lg:pl-20 lg:pt-80">
                 <Image
+                  loading="eager"
                   src="/coding.png"
                   alt="man_achter_laptop"
                   height={300}

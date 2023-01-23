@@ -52,6 +52,7 @@ function Index(this: any) {
       setFlag(
         <div>
           <Image
+            loading="eager"
             className=""
             src={"/england.png"}
             alt="whatsapp"
@@ -64,6 +65,7 @@ function Index(this: any) {
       setFlag(
         <div>
           <Image
+            loading="eager"
             className=""
             src={"/netherlands.png"}
             alt="whatsapp"
@@ -131,6 +133,7 @@ function Index(this: any) {
                   <div className="flex items-center">
                     {author == "Mark Teekens" ? (
                       <Image
+                        loading="eager"
                         height={600}
                         width={600}
                         src="/mark.jpg"
@@ -139,6 +142,7 @@ function Index(this: any) {
                       />
                     ) : (
                       <Image
+                        loading="eager"
                         height={600}
                         width={600}
                         src="/jorn.jpeg"
@@ -233,6 +237,7 @@ function Index(this: any) {
                   <div className="flex flex-col">
                     <div className=" flex h-52">
                       <Image
+                        loading="eager"
                         height={600}
                         width={600}
                         onClick={() => setIsToggled(true)}
@@ -309,6 +314,7 @@ function Index(this: any) {
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
                         <Image
+                          loading="eager"
                           height={600}
                           width={600}
                           src="/mark.jpg"
@@ -317,6 +323,7 @@ function Index(this: any) {
                         />
                       ) : (
                         <Image
+                          loading="eager"
                           height={600}
                           width={600}
                           src="/jorn.jpeg"
@@ -344,6 +351,7 @@ function Index(this: any) {
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
                         <Image
+                          loading="eager"
                           height={600}
                           width={600}
                           src="/mark.jpg"
@@ -352,6 +360,7 @@ function Index(this: any) {
                         />
                       ) : (
                         <Image
+                          loading="eager"
                           height={600}
                           width={600}
                           src="/jorn.jpeg"
@@ -370,6 +379,7 @@ function Index(this: any) {
 
                   <div className="w-2/6">
                     <Image
+                      loading="eager"
                       height={600}
                       width={600}
                       src={data.image}

@@ -34,6 +34,7 @@ function BlogId() {
         {isLoadingItemsALL ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
             <Image
+              loading="eager"
               src="/rubygif.gif"
               alt=""
               className="h-10 animate-pulse"
