@@ -14,7 +14,7 @@ function Index(this: any) {
   const [keyword, setKeyword] = useState("Vul een keyword in");
   const [title, setTitle] = useState<any>();
   const [author, setAuthor] = useState("Jorn Ringeling");
-  const [text, setText] = useState("");
+  const [text, setText] = useState<any>();
   const [image, setImage] = useState("/manruby.png");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
