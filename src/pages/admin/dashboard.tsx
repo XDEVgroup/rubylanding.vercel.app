@@ -35,7 +35,7 @@ function dashboard() {
         <div className="mt-4 flex gap-2">
           <Link href="/admin/blogPumpAI">
             <button className="mr-2 ml-2 mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-400 px-5 py-2.5 text-sm font-medium text-white    ">
-              Blog PUMP-AI (soon)
+              Blog-AI NL(beta)
             </button>
           </Link>
           <Link href="/">
