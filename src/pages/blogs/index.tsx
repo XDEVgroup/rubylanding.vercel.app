@@ -34,6 +34,8 @@ function BlogId() {
         {isLoadingItemsALL ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
             <Image
+              placeholder="blur"
+              blurDataURL="/rubygif.gif"
               loading="eager"
               src="/rubygif.gif"
               alt=""

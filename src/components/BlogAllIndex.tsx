@@ -36,6 +36,8 @@ function BlogAllIndex() {
                     <div className="flex items-center">
                       {RandomDataALL?.author == "Mark Teekens" ? (
                         <Image
+                          placeholder="blur"
+                          blurDataURL="/rubygif.gif"
                           loading="eager"
                           src="/mark.jpg"
                           alt="mark"
@@ -45,6 +47,8 @@ function BlogAllIndex() {
                         />
                       ) : (
                         <Image
+                          placeholder="blur"
+                          blurDataURL="/rubygif.gif"
                           loading="eager"
                           src="/jorn.jpeg"
                           alt="jorn"
@@ -92,6 +96,8 @@ function BlogAllIndex() {
                 </div>
                 <div className="mt-4 flex h-52 max-w-4xl">
                   <Image
+                    placeholder="blur"
+                    blurDataURL="/rubygif.gif"
                     loading="eager"
                     src={RandomDataALL?.image}
                     alt="blog_banner"
@@ -125,6 +131,8 @@ function BlogAllIndex() {
                   <div className="flex-col items-center">
                     {data?.author == "Mark Teekens" ? (
                       <Image
+                        placeholder="blur"
+                        blurDataURL="/rubygif.gif"
                         loading="eager"
                         src="/mark.jpg"
                         alt="mark"
@@ -134,6 +142,8 @@ function BlogAllIndex() {
                       />
                     ) : (
                       <Image
+                        placeholder="blur"
+                        blurDataURL="/rubygif.gif"
                         loading="eager"
                         src="/jorn.jpeg"
                         alt="jorn"
@@ -163,6 +173,8 @@ function BlogAllIndex() {
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
                         <Image
+                          placeholder="blur"
+                          blurDataURL="/rubygif.gif"
                           loading="eager"
                           src="/mark.jpg"
                           alt="mark"
@@ -172,6 +184,8 @@ function BlogAllIndex() {
                         />
                       ) : (
                         <Image
+                          placeholder="blur"
+                          blurDataURL="/rubygif.gif"
                           loading="eager"
                           src="/jorn.jpeg"
                           alt="jorn"
@@ -191,6 +205,8 @@ function BlogAllIndex() {
 
                   <div className="w-2/6">
                     <Image
+                      placeholder="blur"
+                      blurDataURL="/rubygif.gif"
                       loading="eager"
                       src={data.image}
                       alt="blog_banner_nieuw"
