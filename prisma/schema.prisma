@@ -66,12 +66,12 @@ model VerificationToken {
 }
 
 model Blog {
-    id       String @id @default(cuid())
+    id       String    @id @default(cuid())
     title    String
     author   String
     text     String
     image    String
-    date     DateTime @default(now())
+    date     DateTime? @default(now())
     language String
 }
 
