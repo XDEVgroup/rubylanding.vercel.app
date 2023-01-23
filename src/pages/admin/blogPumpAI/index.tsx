@@ -88,7 +88,7 @@ function Index(this: any) {
 
   const generateImage = () => {
     let textArray = [];
-    for (let i = 0; i < 9; i++) {
+    for (let i = 1; i < 9; i++) {
       textArray.push(`/banner/banner_${i}.png`);
     }
 
