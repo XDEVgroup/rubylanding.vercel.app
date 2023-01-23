@@ -78,7 +78,7 @@ function Index(this: any) {
   }, [router.locale]);
 
   const generateText = () => {
-    mutateAIText({ topic: title as any });
+    mutateAIText({ topic: dataAI });
   };
 
   useEffect(() => {
