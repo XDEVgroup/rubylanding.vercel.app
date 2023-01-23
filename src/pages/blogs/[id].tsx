@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import Header from "../../components/HeaderBlack";
+import HeaderBlackEditBlog from "../../components/HeaderBlack";
 import Image from "next/image";
 import Footer from "../../components/Footer";
 import { api } from "../../utils/api";
@@ -30,7 +30,7 @@ function BlogId() {
         />
       </Head>
       <div className="h-full min-h-screen">
-        <Header />
+        <HeaderBlackEditBlog />
         {isLoadingItems ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
             <Image
