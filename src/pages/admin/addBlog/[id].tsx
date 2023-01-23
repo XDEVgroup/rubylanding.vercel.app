@@ -21,19 +21,22 @@ function Index(this: any) {
   const { data: getdataALL, isLoading: isLoadinggetItemsNL } =
     api.blog.getBlogALL.useQuery({ routerLang: router.locale });
 
-  const { data: getSpecdataNL, isLoading: isLoadinggetSpecItemsNL } =
-    api.blog.getSpecBlogNL.useQuery({ id: router.query.id as any });
+  const { data: getSpecdata, isLoading: isLoadinggetSpecItemsNL } =
+    api.blog.getSpecBlog.useQuery({
+      id: router.query.id as any,
+      routerLang: router.locale,
+    });
 
   const { mutateAsync: mutateNLEdit } = api.blog.EditBlogNL.useMutation();
 
   const { mutateAsync: mutateDeleteNL } = api.blog.DeleteBlogNL.useMutation();
 
   useEffect(() => {
-    setTitle(getSpecdataNL?.title as any);
-    setAuthor(getSpecdataNL?.author as any);
-    setText(getSpecdataNL?.text as any);
-    setImage(getSpecdataNL?.image as any);
-  }, [getSpecdataNL]);
+    setTitle(getSpecdata?.title as any);
+    setAuthor(getSpecdata?.author as any);
+    setText(getSpecdata?.text as any);
+    setImage(getSpecdata?.image as any);
+  }, [getSpecdata]);
 
   const editBlogNL = () => {
     if (title != "Vul een titel in" && text != "" && image != "/manruby.png") {

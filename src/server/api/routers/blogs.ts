@@ -151,18 +151,29 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
       
   }),
 
-  getSpecBlogNL: publicProcedure.input(z.object({ 
+  getSpecBlog: publicProcedure.input(z.object({ 
     id: z.string(),
-    
+    routerLang: z.string(),
     
    })).query(async ({ ctx, input }) => {
-    const data = await ctx.prisma.blog.findFirst({
-      where:{
-        id: input.id,
-        language: "NL"
-      }
-    });
-    return data
+    if(input.routerLang.includes("nl-NL")){
+      const data = await ctx.prisma.blog.findFirst({
+        where:{
+          id: input.id,
+          language: "NL"
+        }
+      });
+      return data
+    }else{
+      const data = await ctx.prisma.blog.findFirst({
+        where:{
+          id: input.id,
+          language: "EN"
+        }
+      });
+      return data
+    }
+    
 }),
 
 getRandomBlogALL: publicProcedure.input(z.object({ 
