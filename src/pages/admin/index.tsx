@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
 import { signIn, getSession, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { getProviders } from "next-auth/react";
-import { api } from "../../utils/api";
 import Head from "next/head";
 import HeaderBlack from "../../components/HeaderBlack";
 
@@ -12,8 +10,8 @@ function Login({ providers }: any) {
   if (session.data?.user?.id) {
     if (!session.data.user?.id?.includes("cld356sj70000lf086717vww3")) {
       signOut();
-    } 
-  } 
+    }
+  }
 
   console.log(providers);
   return (

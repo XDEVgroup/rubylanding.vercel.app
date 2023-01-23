@@ -18,15 +18,16 @@ function Index(this: any) {
   const [image, setImage] = useState("/manruby.png");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
+  const [flag, setFlag] = useState<any>();
 
   const {
-    mutateAsync: mutateNL,
+    mutateAsync: mutateALL,
     data: dataNL,
     isLoading: isLoadingItemsNL,
-  } = api.blog.AddBlogNL.useMutation();
+  } = api.blog.AddBlogALL.useMutation();
 
   const {
-    mutateAsync: mutateAI,
+    mutateAsync: mutateAiTitle,
     data: dataAI,
     isLoading: isLoadingItemsAI,
   } = api.AI.addBlogAI.useMutation();
@@ -37,15 +38,42 @@ function Index(this: any) {
     isLoading: isLoadingItemsAIText,
   } = api.AI.addBlogAIText.useMutation();
 
-  const { data: getdataNL, isLoading: isLoadinggetItemsNL } =
-    api.blog.getBlogNL.useQuery();
+  const { data: getdataALL, isLoading: isLoadinggetItemsNL } =
+    api.blog.getBlogALL.useQuery({ routerLang: router.locale });
 
   const generateKeyword = () => {
     if (keyword != "Vul een keyword in") {
-      mutateAI({ topic: keyword });
+      mutateAiTitle({ topic: keyword });
     }
     generateImage();
   };
+  useEffect(() => {
+    if (router.locale == "en") {
+      setFlag(
+        <div>
+          <Image
+            className=""
+            src={"/england.png"}
+            alt="whatsapp"
+            height={20}
+            width={20}
+          />
+        </div>
+      );
+    } else {
+      setFlag(
+        <div>
+          <Image
+            className=""
+            src={"/netherlands.png"}
+            alt="whatsapp"
+            height={20}
+            width={20}
+          />
+        </div>
+      );
+    }
+  }, [router.locale]);
 
   const generateText = () => {
     mutateAIText({ topic: title });
@@ -72,7 +100,8 @@ function Index(this: any) {
       text != "" &&
       image != "/manruby.png"
     ) {
-      mutateNL({
+      mutateALL({
+        routerLang: router.locale,
         title: title,
         author: author,
         text: text,
@@ -96,16 +125,7 @@ function Index(this: any) {
         <div className="min-h-screen  w-full justify-center p-2 lg:w-4/6 lg:p-4">
           <div>
             <div className="m-auto mt-6 w-full cursor-pointer lg:w-8/12">
-              <div className="mb-2 flex items-center">
-                NL
-                <Image
-                  height={16}
-                  width={24}
-                  src="/netherlands.png"
-                  alt=""
-                  className=" ml-1"
-                />
-              </div>
+              <div className="mb-2 flex items-center">{flag}</div>
               <div className="">
                 <div className="flex justify-between">
                   <div className="flex items-center">
@@ -281,7 +301,7 @@ function Index(this: any) {
           <Link href="/">
             <div className="h-10"></div>
           </Link>
-          {getdataNL?.map((data: any, index: number) => {
+          {getdataALL?.map((data: any, index: number) => {
             return (
               <>
                 {data.title.includes(router.query.id) && (
@@ -316,7 +336,7 @@ function Index(this: any) {
               </>
             );
           })}
-          {getdataNL?.map((data: any, index: number) => {
+          {getdataALL?.map((data: any, index: number) => {
             return (
               <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                 <div className="flex">
@@ -358,7 +378,7 @@ function Index(this: any) {
                     />
                   </div>
                   <div className="mt-4">
-                    <Link href={`/admin/addBlogNL/${data.id}`}>
+                    <Link href={`/admin/addBlog/${data.id}`}>
                       <button className="font-semibold text-blue-800">
                         Edit
                       </button>

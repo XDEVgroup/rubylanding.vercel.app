@@ -2,13 +2,13 @@ import { router } from "@trpc/server";
 import { getProviders, getSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import Header from "../../../components/admin/Header";
 import Footer from "../../../components/Footer";
 import { api } from "../../../utils/api";
 import Image from "next/image";
-import HeaderBlack from "../../../components/HeaderBlack";
+import HeaderBlackEditBlog from "../../../components/HeaderBlackEditBlog";
 
 function Index(this: any) {
   const [title, setTitle] = useState("Vul een titel in");
@@ -18,75 +18,66 @@ function Index(this: any) {
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
 
-  const { data: getdataEN, isLoading: isLoadinggetItemsEN } =
-    api.blog.getBlogEN.useQuery();
+  const { data: getdataALL, isLoading: isLoadinggetItemsNL } =
+    api.blog.getBlogALL.useQuery({ routerLang: router.locale });
 
-  const {
-    mutateAsync: mutateEN,
-    data: dataEN,
-    isLoading: isLoadingItemsEN,
-  } = api.blog.AddBlogEN.useMutation();
+  const { data: getSpecdataNL, isLoading: isLoadinggetSpecItemsNL } =
+    api.blog.getSpecBlogNL.useQuery({ id: router.query.id as any });
 
-  const {
-    mutateAsync: mutateDeleteEN,
-    data: dataDeleteEN,
-    isLoading: isLoadingItemsDeleteEN,
-  } = api.blog.DeleteBlogEN.useMutation();
+  const { mutateAsync: mutateNLEdit } = api.blog.EditBlogNL.useMutation();
 
-  const addBlogEN = () => {
+  const { mutateAsync: mutateDeleteNL } = api.blog.DeleteBlogNL.useMutation();
+
+  useEffect(() => {
+    setTitle(getSpecdataNL?.title as any);
+    setAuthor(getSpecdataNL?.author as any);
+    setText(getSpecdataNL?.text as any);
+    setImage(getSpecdataNL?.image as any);
+  }, [getSpecdataNL]);
+
+  const editBlogNL = () => {
     if (title != "Vul een titel in" && text != "" && image != "/manruby.png") {
-      mutateEN({
+      mutateNLEdit({
+        id: router.query.id as any,
         title: title,
         author: author,
         text: text,
         image: image,
       });
-      router.push("/admin/dashboard");
+      router.push("/admin/addBlog");
     } else {
       alert("vul alle velden in");
     }
   };
 
   const deleteBlog = (blogId: any) => {
-    mutateDeleteEN({ id: blogId });
+    mutateDeleteNL({ id: blogId });
     router.push("/admin/dashboard");
   };
-
   return (
     <>
       {" "}
-      <HeaderBlack />
+      <HeaderBlackEditBlog />
       <Header />
-      <div className="grid grid-cols-1 lg:flex">
-        <div className="min-h-screen w-full justify-center p-2 lg:w-4/6 lg:p-4">
+      <div className="grid grid-cols-1 lg:flex ">
+        <div className="min-h-screen  w-full justify-center p-2 lg:w-4/6 lg:p-4">
           <div>
             <div className="m-auto mt-6 w-full cursor-pointer lg:w-8/12">
-              <div className="mb-2 flex items-center">
-                EN
-                <Image
-                  src="/england.png"
-                  alt=""
-                  height={16}
-                  width={24}
-                  className=" ml-1"
-                />
-              </div>
+              <div className="mb-2 flex items-center"></div>
               <div className="">
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     {author == "Mark Teekens" ? (
-                      <Image
+                      <img
                         src="/mark.jpg"
                         alt="mark"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
-                        height={600} width={600}
                       />
                     ) : (
-                      <Image
+                      <img
                         src="/jorn.jpeg"
                         alt="jorn"
                         className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
-                        height={600} width={600}
                       />
                     )}
 
@@ -102,7 +93,6 @@ function Index(this: any) {
                           <option value={"Mark Teekens"}>Mark Teekens</option>
                         </select>
                       </p>
-                      
                     </div>
                   </div>
                   <div className="mt-2 flex space-x-2">
@@ -119,7 +109,7 @@ function Index(this: any) {
                       <BsLinkedin className="h-4 w-4 lg:h-6 lg:w-6" />
                     </Link>
                     <Link
-                      href="https://www.instagram.com/rubyfinance.EN/"
+                      href="https://www.instagram.com/rubyfinance.nl/"
                       className="text-gray-400 hover:text-gray-900 "
                     >
                       <BsInstagram className="h-4 w-4 lg:h-6 lg:w-6" />
@@ -136,12 +126,11 @@ function Index(this: any) {
               </div>
               {!isToggled && (
                 <div className="mt-4 flex h-52 max-w-4xl">
-                  <Image
+                  <img
                     onClick={() => setIsToggled(true)}
                     src={image}
                     alt={`${image && "blog_banner"}`}
                     className="mt-4 w-full object-cover hover:border hover:border-blue-400 "
-                    height={600} width={600}
                   />
                 </div>
               )}
@@ -158,14 +147,11 @@ function Index(this: any) {
 
               <div className=" mt-10 flex flex-col text-xl text-gray-700 ">
                 <div className="flex">
-                Markdown Guide
-                <a href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
-                <button className="underline ml-1">
-                 Klik Hier
-                </button>
-                </a>
+                  Markdown Guide
+                  <a href="https://www.markdownguide.org/cheat-sheet/#basic-syntax">
+                    <button className="ml-1 underline">Klik Hier</button>
+                  </a>
                 </div>
-                
                 <textarea
                   id="textarea1"
                   className=" h-screen rounded p-2 hover:border hover:border-blue-400"
@@ -176,9 +162,9 @@ function Index(this: any) {
               <div className="mt-2">
                 <button
                   className="mr-2 mb-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  onClick={addBlogEN}
+                  onClick={editBlogNL}
                 >
-                  Maak aan
+                  Bewerk
                 </button>
               </div>
             </div>
@@ -190,25 +176,23 @@ function Index(this: any) {
               <div className="h-10"></div>
             </div>
           </Link>
-          {getdataEN?.map((data: any, index: number) => {
+          {getdataALL?.map((data: any, index: number) => {
             return (
               <>
                 {data.title.includes(router.query.id) && (
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
-                        <Image
+                        <img
                           src="/mark.jpg"
                           alt="mark"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
-                          height={600} width={600}
                         />
                       ) : (
-                        <Image
+                        <img
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
-                          height={600} width={600}
                         />
                       )}
                       <div className="mt-4">
@@ -223,25 +207,23 @@ function Index(this: any) {
               </>
             );
           })}
-          {getdataEN?.map((data: any, index: number) => {
+          {getdataALL?.map((data: any, index: number) => {
             return (
               <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                 <div className="flex">
                   <div className="w-4/6">
                     <div className="flex">
                       {data?.author == "Mark Teekens" ? (
-                        <Image
+                        <img
                           src="/mark.jpg"
                           alt="mark"
                           className="h-6 w-6 rounded-full object-cover "
-                          height={600} width={600}
                         />
                       ) : (
-                        <Image
+                        <img
                           src="/jorn.jpeg"
                           alt="jorn"
                           className="h-6 w-6 rounded-full object-cover "
-                          height={600} width={600}
                         />
                       )}
                       <p className=" ml-2 font-semibold">{data.author}</p>
@@ -254,27 +236,28 @@ function Index(this: any) {
                   </div>
 
                   <div className="w-2/6">
-                    <Image
+                    <img
                       src={data.image}
                       alt="blog_banner_nieuw"
                       className="ml-6 h-14 w-14 rounded-md object-cover "
-                      height={600} width={600}
                     />
                   </div>
                   <div className="mt-4">
-                    <Link href={`/admin/addBlogEN/${data.id}`}>
+                    <Link href={`/admin/addBlog/${data.id}`}>
                       <button className="font-semibold text-blue-800">
                         Edit
                       </button>
                     </Link>
                   </div>
                   <div className="mt-4">
-                    <button
-                      onClick={() => deleteBlog(data.id)}
-                      className="ml-2 font-semibold text-blue-800"
-                    >
-                      Delete
-                    </button>
+                    <div className="">
+                      <button
+                        onClick={() => deleteBlog(data.id)}
+                        className="ml-2 font-semibold text-blue-800"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -293,7 +276,7 @@ export async function getServerSideProps(context: any) {
   const providers = await getProviders();
   const session = await getSession(context);
 
-  if (!session?.user?.id?.includes("cld356sj70000lf086717vww3") ) {
+  if (!session?.user?.id?.includes("cld356sj70000lf086717vww3")) {
     return {
       redirect: {
         destination: "/admin",

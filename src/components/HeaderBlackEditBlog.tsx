@@ -52,23 +52,7 @@ function Header({ scrolltoId }: any) {
             <h3 className="sm:text-1x1 font-bold lg:text-2xl">085 - 4835878</h3>
           )}
         </div>
-        <div className="flex items-center">
-          <div>{flag}</div>
-          <div>
-            <select
-              className="bg-transparent"
-              onChange={changeLanguage}
-              defaultValue={router.locale}
-            >
-              <option className="bg-transparent text-black" value="en">
-                EN
-              </option>
-              <option className="bg-transparent text-black" value="nl-NL">
-                NL
-              </option>
-            </select>
-          </div>
-        </div>
+
         {/* <div className="hidden lg:flex">
               <button onClick={scrolltoId} className="rounded-full border border-black bg-transparent p-2 font-bold transition hover:bg-black hover:text-white">
                 Plan gesprek

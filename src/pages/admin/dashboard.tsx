@@ -16,14 +16,9 @@ function dashboard() {
           Welkom Admin {session.data?.user?.name}
         </p>
         <div className="mt-10 flex gap-2">
-          <Link href="/admin/addBlogNL">
-            <button className="mr-2 ml-2 mb-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Blog NL
-            </button>
-          </Link>
-          <Link href="/admin/addBlogEN">
+          <Link href="/admin/addBlog">
             <button className="mr-2 mb-2 rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Blog EN
+              Blog aanmaken
             </button>
           </Link>
           <Link href="/admin/aanvragen">
@@ -35,7 +30,7 @@ function dashboard() {
         <div className="mt-4 flex gap-2">
           <Link href="/admin/blogPumpAI">
             <button className="mr-2 ml-2 mb-2 rounded-lg bg-gradient-to-br from-blue-400 to-purple-400 px-5 py-2.5 text-sm font-medium text-white    ">
-              Blog-AI NL(beta)
+              Blog-AI (beta)
             </button>
           </Link>
           <Link href="/">
@@ -51,7 +46,7 @@ function dashboard() {
         </div>
         <div className="mt-6 flex flex-col items-center justify-center">
           <h2 className="font-bold">Updates & Fixes</h2>
-          <p>-blog AI NL Beta toegevoegd</p>
+          <p>-blog AI Beta toegevoegd</p>
           <p>-datums automatish aangemaakt </p>
           <p>-blogs gesorteerd op aflopende datums</p>
         </div>

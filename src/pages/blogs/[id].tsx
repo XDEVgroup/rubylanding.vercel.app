@@ -12,11 +12,8 @@ import Whatsapp from "../../components/Whatsapp";
 
 function BlogId() {
   const router = useRouter();
-  const { data: dataNL, isLoading: isLoadingItems } =
-    api.blog.getBlogNL.useQuery();
-
-  const { data: dataEN, isLoading: isLoadingItemsEnglish } =
-    api.blog.getBlogEN.useQuery();
+  const { data: getdataALL, isLoading: isLoadingItems } =
+    api.blog.getBlogALL.useQuery({ routerLang: router.locale });
 
   return (
     <>
@@ -36,7 +33,13 @@ function BlogId() {
         <Header />
         {isLoadingItems ? (
           <div className="-mt-36 flex min-h-screen items-center justify-center">
-            <Image height={50} width={100} src="/rubygif.gif" alt="" className="h-10 animate-pulse" />
+            <Image
+              height={50}
+              width={100}
+              src="/rubygif.gif"
+              alt=""
+              className="h-10 animate-pulse"
+            />
           </div>
         ) : (
           <div>
@@ -44,7 +47,7 @@ function BlogId() {
               /* NL */
               <div className="grid min-h-screen grid-cols-1 lg:flex">
                 <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
-                  {dataNL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     const splittedAll = data.text.split("/n");
                     const textMapped = splittedAll?.map(
                       (field: string, index: number) => {
@@ -66,13 +69,17 @@ function BlogId() {
                               <div className="flex justify-between">
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
-                                    <Image height={600} width={600}
+                                    <Image
+                                      height={600}
+                                      width={600}
                                       src="/mark.jpg"
                                       alt="mark"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                                     />
                                   ) : (
-                                    <Image height={600} width={600}
+                                    <Image
+                                      height={600}
+                                      width={600}
                                       src="/jorn.jpeg"
                                       alt="jorn"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -116,7 +123,9 @@ function BlogId() {
                               </div>
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
-                              <Image height={600} width={600}
+                              <Image
+                                height={600}
+                                width={600}
                                 src={data.image}
                                 alt="blog_banner"
                                 className="mt-4 w-full object-cover "
@@ -140,7 +149,7 @@ function BlogId() {
                       </button>
                     </div>
                   </Link>
-                  {dataNL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     return (
                       <>
                         {data.title.includes(router.query.id) && (
@@ -150,13 +159,17 @@ function BlogId() {
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
-                                <Image height={600} width={600}
+                                <Image
+                                  height={600}
+                                  width={600}
                                   src="/mark.jpg"
                                   alt="mark"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
                                 />
                               ) : (
-                                <Image height={600} width={600}
+                                <Image
+                                  height={600}
+                                  width={600}
                                   src="/jorn.jpeg"
                                   alt="jorn"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
@@ -174,7 +187,7 @@ function BlogId() {
                       </>
                     );
                   })}
-                  {dataNL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     return (
                       <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                         <Link href={`/blogs/${data.title}`}>
@@ -182,13 +195,17 @@ function BlogId() {
                             <div className="w-4/6">
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
-                                  <Image height={600} width={600}
+                                  <Image
+                                    height={600}
+                                    width={600}
                                     src="/mark.jpg"
                                     alt="mark"
                                     className="h-6 w-6 rounded-full object-cover "
                                   />
                                 ) : (
-                                  <Image height={600} width={600}
+                                  <Image
+                                    height={600}
+                                    width={600}
                                     src="/jorn.jpeg"
                                     alt="jorn"
                                     className="h-6 w-6 rounded-full object-cover "
@@ -206,7 +223,9 @@ function BlogId() {
                             </div>
 
                             <div className="w-2/6">
-                              <Image height={600} width={600}
+                              <Image
+                                height={600}
+                                width={600}
                                 src={data.image}
                                 alt="blog_banner_nieuw"
                                 className="ml-6 h-14 w-14 rounded-md object-cover "
@@ -223,9 +242,9 @@ function BlogId() {
               /* EN */
               <div className="grid min-h-screen grid-cols-1 lg:flex">
                 <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
-                  {dataEN?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     const splittedAll = data.text.split("/n");
-                  
+
                     const textMapped = splittedAll?.map(
                       (field: string, index: number) => {
                         return (
@@ -246,13 +265,17 @@ function BlogId() {
                               <div className="flex justify-between">
                                 <div className="flex items-center">
                                   {data?.author == "Mark Teekens" ? (
-                                    <Image height={600} width={600}
+                                    <Image
+                                      height={600}
+                                      width={600}
                                       src="/mark.jpg"
                                       alt="mark"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
                                     />
                                   ) : (
-                                    <Image height={600} width={600}
+                                    <Image
+                                      height={600}
+                                      width={600}
                                       src="/jorn.jpeg"
                                       alt="jorn"
                                       className="h-10 w-10 rounded-full object-cover lg:h-14 lg:w-14 "
@@ -296,7 +319,9 @@ function BlogId() {
                               </div>
                             </div>
                             <div className="mt-4 flex h-52 max-w-4xl">
-                              <Image height={600} width={600}
+                              <Image
+                                height={600}
+                                width={600}
                                 src={data.image}
                                 alt="blog_banner"
                                 className="mt-4 w-full object-cover "
@@ -320,7 +345,7 @@ function BlogId() {
                       </button>
                     </div>
                   </Link>
-                  {dataEN?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     return (
                       <>
                         {data.title.includes(router.query.id) && (
@@ -330,13 +355,17 @@ function BlogId() {
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
-                                <Image height={600} width={600}
+                                <Image
+                                  height={600}
+                                  width={600}
                                   src="/mark.jpg"
                                   alt="mark"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
                                 />
                               ) : (
-                                <Image height={600} width={600}
+                                <Image
+                                  height={600}
+                                  width={600}
                                   src="/jorn.jpeg"
                                   alt="jorn"
                                   className="mt-6 h-20 w-20 rounded-full object-cover "
@@ -354,7 +383,7 @@ function BlogId() {
                       </>
                     );
                   })}
-                  {dataEN?.map((data: any, index: number) => {
+                  {getdataALL?.map((data: any, index: number) => {
                     return (
                       <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                         <Link href={`/blogs/${data.title}`}>
@@ -362,13 +391,17 @@ function BlogId() {
                             <div className="w-4/6">
                               <div className="flex">
                                 {data?.author == "Mark Teekens" ? (
-                                  <Image height={600} width={600}
+                                  <Image
+                                    height={600}
+                                    width={600}
                                     src="/mark.jpg"
                                     alt="mark"
                                     className="h-6 w-6 rounded-full object-cover "
                                   />
                                 ) : (
-                                  <Image height={600} width={600}
+                                  <Image
+                                    height={600}
+                                    width={600}
                                     src="/jorn.jpeg"
                                     alt="jorn"
                                     className="h-6 w-6 rounded-full object-cover "
@@ -386,7 +419,9 @@ function BlogId() {
                             </div>
 
                             <div className="w-2/6">
-                              <Image height={600} width={600}
+                              <Image
+                                height={600}
+                                width={600}
                                 src={data.image}
                                 alt="blog_banner_nieuw"
                                 className="ml-6 h-14 w-14 rounded-md object-cover "
