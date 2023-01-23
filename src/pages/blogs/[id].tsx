@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import HeaderBlackEditBlog from "../../components/HeaderBlack";
+import HeaderBlackEditBlog from "../../components/HeaderBlackEditBlog";
 import Image from "next/image";
 import Footer from "../../components/Footer";
 import { api } from "../../utils/api";
