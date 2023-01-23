@@ -57,17 +57,11 @@ function Index(this: any) {
   }, [dataAIText, dataAI]);
 
   const generateImage = () => {
-    var textArray = [
-      "/banner/banner_1.png",
-      "/banner/banner_2.png",
-      "/banner/banner_3.png",
-      "/banner/banner_4.png",
-      "/banner/banner_5.png",
-      "/banner/banner_6.png",
-      "/banner/banner_7.png",
-      "/banner/banner_8.png",
-      "/banner/banner_9.png",
-    ];
+    let textArray = [];
+    for (let i = 0; i < 9; i++) {
+      textArray.push(`/banner/banner_${i}.png`);
+    }
+
     var randomNumber = Math.floor(Math.random() * textArray.length);
     setImage(textArray[randomNumber]);
   };
