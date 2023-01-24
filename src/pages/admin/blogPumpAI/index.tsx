@@ -33,6 +33,12 @@ function Index(this: any) {
   } = api.AI.addBlogAI.useMutation();
 
   const {
+    mutateAsync: mutateDeleteNL,
+    data: dataDeleteNL,
+    isLoading: isLoadingItemsDeleteNL,
+  } = api.blog.DeleteBlogNL.useMutation();
+
+  const {
     mutateAsync: mutateAIText,
     data: dataAIText,
     isLoading: isLoadingItemsAIText,
@@ -116,6 +122,7 @@ function Index(this: any) {
   };
 
   const deleteBlog = (blogId: any) => {
+    mutateDeleteNL({ id: blogId });
     router.push("/admin/dashboard");
   };
   return (
