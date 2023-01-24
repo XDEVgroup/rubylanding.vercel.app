@@ -130,8 +130,9 @@ function IndexEN() {
         </div>
         <div className="p-6">
           <div className="mt-40 flex flex-col items-center justify-center lg:p-0">
-            <h2 className="text-3xl font-bold">The full accounting</h2>
-            <h2 className="text-3xl font-bold">for a fixed price</h2>
+            <h2 className="px-4 text-3xl font-bold lg:w-3/12 lg:text-center">
+              The full accounting, for a fixed price.
+            </h2>
           </div>
 
           <div>

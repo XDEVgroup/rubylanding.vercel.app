@@ -129,8 +129,9 @@ function IndexNL() {
         </div>
         <div className="p-6">
           <div className="mt-40 flex flex-col items-center justify-center lg:p-0">
-            <h2 className="text-3xl font-bold">De volledige boekhouding,</h2>
-            <h2 className="text-3xl font-bold">voor een vaste prijs.</h2>
+            <h2 className="px-4 text-3xl font-bold lg:w-4/12 lg:text-center">
+              De volledige boekhouding, voor een vaste prijs.
+            </h2>
           </div>
 
           <div>
