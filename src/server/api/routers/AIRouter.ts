@@ -35,12 +35,12 @@ export const AIRouter = createTRPCRouter({
         model: 'text-davinci-003',
         prompt: `Maak een blog met de volgende titel: boekhouden is leuk`,
         temperature: 1,
-        max_tokens: 800,
+        max_tokens: 100,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
       })
-      
-      return {"aidata": res.data.choices[0]!.text}
+      console.log(res.data.choices[0])
+      return res.data.choices[0]
     }),
 })
