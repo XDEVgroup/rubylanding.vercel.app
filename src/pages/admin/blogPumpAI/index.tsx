@@ -88,9 +88,12 @@ function Index(this: any) {
   };
 
   useEffect(() => {
-    setText(dataAIText?.choices[0].text);
     setTitle(dataAI);
-  }, [dataAIText, dataAI]);
+  }, [dataAI]);
+
+  useEffect(() => {
+    setText(dataAIText?.choices[0].text);
+  }, [dataAIText]);
 
   const generateImage = () => {
     let textArray = [];
