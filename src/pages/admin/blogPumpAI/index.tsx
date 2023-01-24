@@ -12,9 +12,9 @@ import HeaderBlack from "../../../components/HeaderBlack";
 
 function Index(this: any) {
   const [keyword, setKeyword] = useState("Vul een keyword in");
-  const [title, setTitle] = useState<any>();
+  const [title, setTitle] = useState<any>("");
   const [author, setAuthor] = useState("Jorn Ringeling");
-  const [text, setText] = useState<any>();
+  const [text, setText] = useState<any>("");
   const [image, setImage] = useState("/manruby.png");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
@@ -285,7 +285,6 @@ function Index(this: any) {
                 {dataAIText && (
                   <textarea
                     onChange={(e) => setText(e.target.value)}
-                    id="textarea1"
                     className=" h-screen rounded p-2 hover:border hover:border-blue-400"
                     value={text}
                   />
