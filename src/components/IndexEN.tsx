@@ -34,9 +34,9 @@ function IndexEN() {
           <div className="">
             <Image
               loading="eager"
-              className="ml-10 transform p-10  drop-shadow-lg transition duration-700 ease-in-out  hover:-rotate-12 hover:scale-125  lg:ml-0 lg:p-0"
-              width={300}
-              height={300}
+              className="ml-10 hidden transform p-10 drop-shadow-lg  transition duration-700 ease-in-out hover:-rotate-12  hover:scale-125 lg:ml-0  lg:flex lg:p-0"
+              width={250}
+              height={250}
               src="/iphonewhiteR.png"
               alt="iphone_ruby_app"
             />
