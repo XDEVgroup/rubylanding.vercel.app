@@ -88,7 +88,7 @@ function Index(this: any) {
   };
 
   useEffect(() => {
-    setText(dataAIText.text);
+    setText(dataAIText?.text);
     setTitle(dataAI);
   }, [dataAIText, dataAI]);
 
