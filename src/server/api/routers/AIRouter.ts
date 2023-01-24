@@ -33,14 +33,14 @@ export const AIRouter = createTRPCRouter({
     .mutation(async ({input}) => {
       const res = await openai.createCompletion({
         model: 'text-davinci-003',
-        prompt: `Maak een blog met de volgende titel: ${input.topic}`,
+        prompt: `Maak een titel met het volgende keyword: boekhouden`,
         temperature: 1,
         max_tokens: 800,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
       })
-      console.log(res?.data.choices[0].text.toString())
-      return res?.data.choices[0].text.toString()
+     
+      return res?.data.choices[0]!.text
     }),
 })
