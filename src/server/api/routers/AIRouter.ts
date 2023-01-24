@@ -32,7 +32,7 @@ export const AIRouter = createTRPCRouter({
     .mutation(async ({input}) => {
       const res = await openai.createCompletion({
         model: 'text-davinci-003',
-        prompt: `Maak een blog met de volgende titel: ${input.topic.replace('\n','').replace('"','')}`,
+        prompt: `Maak een blog met de volgende titel: ${input.topic}, and return it as letters only, no special characters `,
         temperature: 1,
         max_tokens: 400,
         top_p: 1,
