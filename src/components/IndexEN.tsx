@@ -327,7 +327,7 @@ function IndexEN() {
                   width={300}
                 />
               </div>
-              <ContactForm scrolltoId={scrolltoId} />
+              <ContactForm />
               <div className="hidden lg:flex lg:pl-20 lg:pt-80">
                 <Image
                   loading="eager"

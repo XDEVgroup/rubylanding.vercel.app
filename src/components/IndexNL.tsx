@@ -35,7 +35,7 @@ function IndexNL() {
           <div className="">
             <Image
               loading="eager"
-              className="ml-10 transform p-10  drop-shadow-lg transition duration-700 ease-in-out  hover:-rotate-12 hover:scale-125  lg:ml-0 lg:p-0"
+              className="ml-10 transform p-10 drop-shadow-md transition duration-700 ease-in-out  hover:-rotate-12 hover:scale-125  lg:ml-0 lg:p-0"
               width={300}
               height={300}
               src="/iphonewhiteR.png"
@@ -325,7 +325,7 @@ function IndexNL() {
                   width={300}
                 />
               </div>
-              <ContactForm scrolltoId={scrolltoId} />
+              <ContactForm />
               <div className="hidden lg:flex lg:pl-20 lg:pt-80">
                 <Image
                   loading="eager"
