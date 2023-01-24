@@ -34,7 +34,7 @@ export const AIRouter = createTRPCRouter({
         model: 'text-davinci-003',
         prompt: `Maak een blog met de volgende titel: ${input.topic.replace('\n','').replace('"','')}`,
         temperature: 1,
-        max_tokens: 300,
+        max_tokens: 400,
         top_p: 1,
         frequency_penalty: 0,
         presence_penalty: 0,
