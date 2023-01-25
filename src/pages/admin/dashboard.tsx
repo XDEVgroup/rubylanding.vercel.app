@@ -13,7 +13,7 @@ function dashboard() {
       <Header />
       <div className="-mt-28 flex min-h-screen flex-col items-center justify-center">
         <p className="text-2xl font-bold">
-          Welkom Admin {session.data?.user?.name}
+          Welkom, {session.data?.user?.name}
         </p>
         <div className="mt-10 flex gap-2">
           <Link href="/admin/addBlog">
