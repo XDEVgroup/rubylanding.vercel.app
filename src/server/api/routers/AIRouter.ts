@@ -40,8 +40,8 @@ export const AIRouter = createTRPCRouter({
           frequency_penalty: 0,
           presence_penalty: 0,
         })
-        const data = await JSON.stringify(res?.data?.choices[0].text as any)
-        return data
+        const data = JSON.stringify(res?.data?.choices[0].text as any)
+        return await JSON.parse(data)
       }catch (err) {
         console.log(err)
       }
