@@ -35,14 +35,14 @@ export const AIRouter = createTRPCRouter({
           model: 'text-davinci-003',
           prompt: `Maak een blog met de volgende titel: ${input.topic}  `,
           temperature: 1,
-          max_tokens: 200,
+          max_tokens: 800,
           top_p: 1,
           frequency_penalty: 0,
           presence_penalty: 0,
         })
         const data = await JSON.stringify(res?.data?.choices[0].text as any)
         return data
-      }catch(err) {
+      }catch (err) {
         console.log(err)
       }
       
