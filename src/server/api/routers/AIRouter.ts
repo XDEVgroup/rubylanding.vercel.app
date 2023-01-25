@@ -30,7 +30,7 @@ export const AIRouter = createTRPCRouter({
     addBlogAIText: protectedProcedure
     .input(z.object({topic: z.any()}))
     .mutation(async ({input}) => {
-      try{
+      
         const res = await openai.createCompletion({
           model: 'text-davinci-003',
           prompt: `Maak een blog met de volgende titel: ${input.topic}  `,
@@ -40,10 +40,11 @@ export const AIRouter = createTRPCRouter({
           frequency_penalty: 0,
           presence_penalty: 0,
         })
+        try{
         const data = res?.data?.choices[0]!.text
         return data
       }catch (err) {
-        console.log(err)
+        console.log("Dit is de error:", err, res?.data?.choices[0]!.text)
       }
       
     }),
