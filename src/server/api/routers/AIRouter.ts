@@ -40,7 +40,7 @@ export const AIRouter = createTRPCRouter({
           frequency_penalty: 0,
           presence_penalty: 0,
         })
-        const data = res?.data?.choices[0].text.toString() as string
+        const data = res?.data?.choices[0]?.text.toString() as string
         return data
       }catch (err) {
         console.log(err)
