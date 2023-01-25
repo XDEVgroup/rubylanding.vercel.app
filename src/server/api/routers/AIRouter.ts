@@ -33,7 +33,7 @@ export const AIRouter = createTRPCRouter({
       
         const res = await openai.createCompletion({
           model: 'text-davinci-003',
-          prompt: `Maak een blog met de volgende titel: ${input.topic}  `,
+          prompt: `Maak een blog met de volgende titel: ${input.topic}`,
           temperature: 1,
           max_tokens: 400,
           top_p: 1,
@@ -41,7 +41,7 @@ export const AIRouter = createTRPCRouter({
           presence_penalty: 0,
         })
         try{
-        const data = res?.data?.choices[0]!.text
+        const data = JSON.stringify(res?.data?.choices[0]!.text)
         return data
       }catch (err) {
         console.log("Dit is de error:", err, res?.data?.choices[0]!.text)
