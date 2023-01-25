@@ -41,7 +41,7 @@ export const AIRouter = createTRPCRouter({
           presence_penalty: 0,
         })
         try{
-        const data = JSON.stringify(res?.data?.choices[0]!.text)
+        const data = res?.data?.choices[0]!.text
         return data
       }catch (err) {
         console.log("Dit is de error:", err, res?.data?.choices[0]!.text)
