@@ -96,7 +96,7 @@ function Index(this: any) {
   }, [dataAIText]);
 
   const generateImage = () => {
-    let textArray = [];
+    let textArray:any = [];
     for (let i = 1; i < 9; i++) {
       textArray.push(`/banner/banner_${i}.png`);
     }
@@ -112,7 +112,7 @@ function Index(this: any) {
       image != "/manruby.png"
     ) {
       mutateALL({
-        routerLang: router.locale,
+        routerLang: router.locale as any,
         title: title,
         author: author,
         text: text,

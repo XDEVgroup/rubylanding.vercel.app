@@ -78,7 +78,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
         image: z.string(),
         
        })).mutation(async ({ ctx,input }) => {
-        const data = await ctx.prisma.blog.create({
+        const data:any = await ctx.prisma.blog.create({
           data: {
             title: input.title,
             author: input.author,
@@ -118,7 +118,7 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
         return data
       }),
 
-    getBlogALL: publicProcedure.input(z.object({routerLang: z.string()})).query(async ({ ctx, input }) => {
+    getBlogALL: publicProcedure.input(z.object({routerLang: z.any()})).query(async ({ ctx, input }) => {
       if(input.routerLang.includes("nl-NL")){
         const data = await ctx.prisma.blog.findMany({
           orderBy: [
@@ -178,8 +178,6 @@ import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 getRandomBlogALL: publicProcedure.input(z.object({ 
   routerLang: z.string(),
-  
-  
  })).query(async ({ ctx,input }) => {
   if(input.routerLang.includes("nl-NL")){
     const data = await ctx.prisma.blog.findMany({
