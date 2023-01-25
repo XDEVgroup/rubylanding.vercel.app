@@ -92,7 +92,7 @@ function Index(this: any) {
   }, [dataAI]);
 
   useEffect(() => {
-    setText(dataAIText?.choices[0].text);
+    setText(dataAIText);
   }, [dataAIText]);
 
   const generateImage = () => {
