@@ -65,7 +65,7 @@ function Index(this: any) {
   const addBlogNL = () => {
     if (title != "Vul een titel in" && text != "" && image != "/manruby.png") {
       mutateNL({
-        routerLang: router.locale,
+        routerLang: router.locale as any,
         title: title,
         author: author,
         text: text,
