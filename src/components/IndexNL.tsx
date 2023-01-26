@@ -10,12 +10,12 @@ function IndexNL() {
     access?.scrollIntoView({ behavior: "smooth" });
   }
   return (
-    <div className="body-font font-primary">
+    <div className="">
       <div className="h-screen w-full bg-gradient-to-br from-[#496adc] to-[#c57bfe] text-white">
         <Header scrolltoId={scrolltoId} />
         <div className="mt-0 grid grid-cols-1 items-center justify-center lg:mt-20 lg:flex lg:grid-cols-2 ">
           <div className="w-full p-10 lg:w-5/12 lg:p-0">
-            <h1 className="mt-8 p-2 text-2xl font-bold lg:mt-0 lg:text-6xl">
+            <h1 className="body-font mt-8 p-2 font-primary text-2xl font-bold lg:mt-0 lg:text-6xl">
               Dé Online Boekhouder voor zzpers
             </h1>
             <p className="mt-2 text-lg font-semibold lg:mt-0">

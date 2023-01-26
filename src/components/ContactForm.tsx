@@ -14,7 +14,7 @@ function ContactForm() {
   const { mutate, data, isLoading } = api.mail.addContact.useMutation();
   return (
     <div className="-mt-0 rounded-md px-4 py-4 shadow-md lg:-mt-10 lg:px-10 lg:py-16">
-      {router.locale.includes("en") ? (
+      {router?.locale?.includes("en") ? (
         <div className="">
           <div className="flex flex-col">
             <label
