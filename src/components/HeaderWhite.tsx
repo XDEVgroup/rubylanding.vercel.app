@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Header({ scrolltoId }: any) {
+function Header({}: any) {
   const router = useRouter();
   const changeLanguage = (e: any) => {
     const locale = e.target.value;
