@@ -24,7 +24,7 @@ function Index(this: any) {
   const { data: getSpecdata, isLoading: isLoadinggetSpecItemsNL } =
     api.blog.getSpecBlog.useQuery({
       id: router.query.id as any,
-      routerLang: router.locale,
+      routerLang: router.locale as any,
     });
 
   const { mutateAsync: mutateNLEdit } = api.blog.EditBlogNL.useMutation();
