@@ -9,12 +9,12 @@ import Image from "next/image";
 function BlogAllIndex() {
   const router = useRouter();
   const { data: RandomDataALL } = api.blog.getRandomBlogALL.useQuery({
-    routerLang: router.locale,
+    routerLang: router.locale as string,
   });
   const { data: dataALL } = api.blog.getBlogALL.useQuery({
-    routerLang: router.locale,
+    routerLang: router.locale as string ,
   });
-  const splittedAll = RandomDataALL?.text.split("/n");
+  const splittedAll = dataALL && dataALL[0]?.text.split("/n");
   const textMapped = splittedAll?.map((field: string, index: number) => {
     return (
       <div key={index}>
@@ -26,15 +26,15 @@ function BlogAllIndex() {
   });
   return (
     <div className="grid min-h-screen grid-cols-1 lg:flex">
-      <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
+      {dataALL && <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
         <>
-          <Link href={`/blogs/${RandomDataALL?.title}`}>
+          <Link href={`/blogs/${dataALL[0]?.title}`}>
             <div>
               <div className="m-auto mt-6 w-full cursor-pointer lg:w-8/12">
                 <div className="">
                   <div className="flex justify-between">
                     <div className="flex items-center">
-                      {RandomDataALL?.author == "Mark Teekens" ? (
+                      {dataALL[0]?.author == "Mark Teekens" ? (
                         <Image
                           loading="eager"
                           src="/mark.jpg"
@@ -56,10 +56,10 @@ function BlogAllIndex() {
 
                       <div className="flex flex-col">
                         <p className="ml-2 text-sm font-medium lg:text-base">
-                          {RandomDataALL?.author}
+                          {dataALL[0]?.author}
                         </p>
                         <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
-                          {RandomDataALL?.date.toLocaleDateString()}
+                        {dataALL && dataALL[0]?.date?.toLocaleDateString() as any} 
                         </p>
                       </div>
                     </div>
@@ -86,7 +86,7 @@ function BlogAllIndex() {
                   </div>
                   <div className="mt-4 flex items-center text-[#2C234D]">
                     <h3 className="text-2xl font-bold text-[#2C234D] lg:text-4xl">
-                      {RandomDataALL?.title}
+                      {dataALL[0]?.title}
                     </h3>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ function BlogAllIndex() {
                   <Image
                     priority
                     loading="eager"
-                    src={RandomDataALL?.image}
+                    src={dataALL[0]?.image as string}
                     alt="blog_banner"
                     className="mt-4 w-full object-cover"
                     height={400}
@@ -109,22 +109,56 @@ function BlogAllIndex() {
             </div>
           </Link>
         </>
-      </div>
+      </div>}
       <div className="w-full p-6 lg:w-2/12 lg:p-0">
-        <Link href="/">
-          <div className="flex p-6 lg:p-0">
-            <button className="mt-4 w-full rounded-full border border-black bg-black p-2 text-white transition hover:bg-white hover:text-black">
-              Plan een gesprek
-            </button>
-          </div>
-        </Link>
-        {dataALL?.map((data: any, index: number) => {
-          return (
-            <>
-              {data.title.includes(router.query.id) && (
-                <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
+      <Link href="/">
+                    <div className="flex p-6 lg:p-0">
+                      <button className="mt-4 w-full rounded-full border border-black bg-black p-2 text-white transition hover:bg-white hover:text-black">
+                        Plan een gesprek
+                      </button>
+                    </div>
+                  </Link>
+                 
+                        {dataALL && dataALL[0]?.title.includes(router.query.id as string) && (
+                          <div
+                            className="-ml-0 hidden lg:-ml-40 lg:grid"
+                            
+                          >
+                            <div className="flex-col items-center">
+                              {dataALL[0]?.author == "Mark Teekens" ? (
+                                <Image
+                                  loading="eager"
+                                  height={600}
+                                  width={600}
+                                  src="/mark.jpg"
+                                  alt="mark"
+                                  className="mt-6 h-20 w-20 rounded-full object-cover "
+                                />
+                              ) : (
+                                <Image
+                                  loading="eager"
+                                  height={600}
+                                  width={600}
+                                  src="/jorn.jpeg"
+                                  alt="jorn"
+                                  className="mt-6 h-20 w-20 rounded-full object-cover "
+                                />
+                              )}
+                              <div className="mt-4">
+                                <p className=" font-semibold">{dataALL[0].author}</p>
+                              </div>
+                            </div>
+                            <h3 className="mt-6 mb-4 text-lg font-semibold">
+                              Meer van Ruby
+                            </h3>
+                          </div>
+                        )}
+                       
+        
+              
+                       {dataALL && <div className="-ml-0 hidden lg:-ml-40 lg:grid" >
                   <div className="flex-col items-center">
-                    {data?.author == "Mark Teekens" ? (
+                    {dataALL[0]?.author == "Mark Teekens" ? (
                       <Image
                         loading="eager"
                         src="/mark.jpg"
@@ -144,17 +178,16 @@ function BlogAllIndex() {
                       />
                     )}
                     <div className="mt-4">
-                      <p className=" font-semibold">{data.author}</p>
+                      <p className=" font-semibold">{dataALL[0]?.author}</p>
                     </div>
                   </div>
                   <h3 className="mt-6 mb-4 text-lg font-semibold">
                     Meer van Ruby
                   </h3>
-                </div>
-              )}
-            </>
-          );
-        })}
+                </div>}
+              
+            
+          
         {dataALL?.map((data: any, index: number) => {
           return (
             <div key={index} className="mt-6 -ml-0 lg:-ml-40">
