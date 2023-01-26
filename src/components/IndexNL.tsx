@@ -16,7 +16,7 @@ function IndexNL() {
         <div className="mt-0 grid grid-cols-1 items-center justify-center lg:mt-20 lg:flex lg:grid-cols-2 ">
           <div className="w-full p-10 lg:w-5/12 lg:p-0">
             <h1 className="body-font mt-8 p-2 font-primary text-2xl font-bold lg:mt-0 lg:text-6xl">
-              Dé Online Boekhouder voor zzpers
+              Dé Online Boekhouder voor ZZP’ers
             </h1>
             <p className="mt-2 text-lg font-semibold lg:mt-0">
               Als ZZP’er/Freelancer wil je je maar op één ding focussen; het
