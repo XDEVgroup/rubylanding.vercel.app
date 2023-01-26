@@ -8,9 +8,6 @@ import Image from "next/image";
 
 function BlogAllIndex() {
   const router = useRouter();
-  const { data: RandomDataALL } = api.blog.getRandomBlogALL.useQuery({
-    routerLang: router.locale as string,
-  });
   const { data: dataALL } = api.blog.getBlogALL.useQuery({
     routerLang: router.locale as string ,
   });
