@@ -11,10 +11,6 @@ function BlogId() {
   const router = useRouter();
   //focus deze query voor serverfetch
 
-  const { isLoading: isLoadingItemsALL } = api.blog.getBlogALL.useQuery({
-    routerLang: router.locale,
-  });
-
   return (
     <>
       <Head>
@@ -31,24 +27,9 @@ function BlogId() {
       </Head>
       <div className="h-full min-h-screen">
         <Header />
-        {isLoadingItemsALL ? (
-          <div className="-mt-36 flex min-h-screen items-center justify-center">
-            <Image
-              placeholder="blur"
-              blurDataURL="/rubygif.gif"
-              loading="eager"
-              src="/rubygif.gif"
-              alt=""
-              className="h-10 animate-pulse"
-              height={50}
-              width={100}
-            />
-          </div>
-        ) : (
-          <div>
-            <BlogAllIndex />
-          </div>
-        )}
+        <div>
+          <BlogAllIndex />
+        </div>
         <div className="fixed bottom-6 right-6">
           <Whatsapp />
         </div>
