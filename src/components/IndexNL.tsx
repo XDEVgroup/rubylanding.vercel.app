@@ -10,7 +10,7 @@ function IndexNL() {
     access?.scrollIntoView({ behavior: "smooth" });
   }
   return (
-    <div>
+    <div className="body-font font-primary">
       <div className="h-screen w-full bg-gradient-to-br from-[#496adc] to-[#c57bfe] text-white">
         <Header scrolltoId={scrolltoId} />
         <div className="mt-0 grid grid-cols-1 items-center justify-center lg:mt-20 lg:flex lg:grid-cols-2 ">

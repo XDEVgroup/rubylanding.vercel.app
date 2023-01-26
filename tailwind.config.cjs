@@ -3,7 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      
+      fontFamily: {
+        'primary': ['Montserrat', 'Righteous']
+      },
     },
   },
   plugins: [],
