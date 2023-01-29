@@ -3,13 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Header({}: any) {
+interface Props{
+scrolltoId?: () => void
+}
+
+function Header({}:Props) {
   const router = useRouter();
-  const changeLanguage = (e: any) => {
+  const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const locale = e.target.value;
     router.push("/", "/", { locale });
   };
-  const [flag, setFlag] = useState<any>();
+  const [flag, setFlag] = useState<React.ReactNode>();
 
   useEffect(() => {
     if (router.locale == "en") {

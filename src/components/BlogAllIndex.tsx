@@ -200,7 +200,7 @@ function BlogAllIndex() {
               </div>
             )}
 
-            {dataALL?.map((data: any, index: number) => {
+            {dataALL?.map((data, index: number) => {
               return (
                 <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                   <Link href={`/blogs/${data.title}`}>

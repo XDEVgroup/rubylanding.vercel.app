@@ -1,4 +1,4 @@
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, getSession, GetSessionParams } from "next-auth/react";
 import React from "react";
 import Header from "../../components/admin/Header";
 import HeaderBlack from "../../components/HeaderBlack";
@@ -14,8 +14,8 @@ function aanvragen() {
     },
   });
 
-  const handleGebeld = (datid: any) => {
-    handlegebeldMutate({ id: datid as any });
+  const handleGebeld = (datid:string) => {
+    handlegebeldMutate({ id: datid });
   };
   return (
     <div>
@@ -44,7 +44,7 @@ function aanvragen() {
               </tr>
             </thead>
             <tbody>
-              {data?.map((dat: any) => {
+              {data?.map((dat) => {
                 return (
                   <tr key={dat.id} className="border-b bg-white ">
                     <td
@@ -77,7 +77,7 @@ function aanvragen() {
 
 export default aanvragen;
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const providers = await getProviders();
   const session = await getSession(context);
 

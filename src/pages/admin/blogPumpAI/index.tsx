@@ -1,5 +1,5 @@
 import { router } from "@trpc/server";
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, getSession, GetSessionParams } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -10,15 +10,15 @@ import { api } from "../../../utils/api";
 import Image from "next/image";
 import HeaderBlack from "../../../components/HeaderBlack";
 
-function Index(this: any) {
+function Index() {
   const [keyword, setKeyword] = useState("Vul een keyword in");
-  const [title, setTitle] = useState<any>("");
+  const [title, setTitle] = useState<string | undefined>("");
   const [author, setAuthor] = useState("Jorn Ringeling");
-  const [text, setText] = useState<any>("");
+  const [text, setText] = useState<string | undefined>("");
   const [image, setImage] = useState("/manruby.png");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
-  const [flag, setFlag] = useState<any>();
+  const [flag, setFlag] = useState<React.ReactNode>();
 
   const {
     mutateAsync: mutateALL,
@@ -112,10 +112,10 @@ function Index(this: any) {
       image != "/manruby.png"
     ) {
       mutateALL({
-        routerLang: router.locale as any,
-        title: title,
+        routerLang: router.locale as string,
+        title: title as string,
         author: author,
-        text: text,
+        text: text as string,
         image: image,
       });
       router.push("/admin/dashboard");
@@ -124,7 +124,7 @@ function Index(this: any) {
     }
   };
 
-  const deleteBlog = (blogId: any) => {
+  const deleteBlog = (blogId: string) => {
     mutateDeleteNL({ id: blogId });
     router.push("/admin/dashboard");
   };
@@ -315,10 +315,10 @@ function Index(this: any) {
           <Link href="/">
             <div className="h-10"></div>
           </Link>
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <>
-                {data.title.includes(router.query.id) && (
+                {data.title.includes(router.query.id as string) && (
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
@@ -352,7 +352,7 @@ function Index(this: any) {
               </>
             );
           })}
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                 <div className="flex">
@@ -426,7 +426,7 @@ function Index(this: any) {
 
 export default Index;
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const providers = await getProviders();
   const session = await getSession(context);
 
