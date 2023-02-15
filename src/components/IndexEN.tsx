@@ -11,10 +11,10 @@ function IndexEN() {
   }
   return (
     <div>
-      <div className="h-screen w-full bg-gradient-to-br from-[#496adc] to-[#c57bfe] text-white">
+      <div className="h-screen w-full bg-[url('/hero-img.jpg')] text-white">
         <Header scrolltoId={scrolltoId} />
         <div className="mt-0 grid grid-cols-1 items-center justify-center lg:mt-20 lg:flex lg:grid-cols-2 ">
-          <div className="w-full p-10 lg:w-5/12 lg:p-0">
+          <div className="mt-20 w-full p-10 lg:w-5/12 lg:p-0">
             <h1 className="body-font mt-8 font-primary text-2xl font-bold lg:mt-0 lg:text-6xl">
               The Online platform For Entrepreneurs
             </h1>
@@ -31,16 +31,7 @@ function IndexEN() {
               Schedule a call
             </button>
           </div>
-          <div className="">
-            <Image
-              loading="eager"
-              className="ml-10 hidden transform p-10 drop-shadow-lg  transition duration-700 ease-in-out hover:-rotate-12  hover:scale-125 lg:ml-0  lg:flex lg:p-0"
-              width={250}
-              height={250}
-              src="/iphonewhiteR.png"
-              alt="iphone_ruby_app"
-            />
-          </div>
+          <div className="w-80"></div>
         </div>
       </div>
       <main className="h-full min-h-screen bg-white text-black">
