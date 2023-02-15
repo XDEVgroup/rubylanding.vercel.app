@@ -1,4 +1,4 @@
-import { getProviders, getSession, signOut, useSession } from "next-auth/react";
+import { getProviders, getSession, GetSessionParams, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import Header from "../../components/admin/Header";
@@ -58,7 +58,7 @@ function dashboard() {
 
 export default dashboard;
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const providers = await getProviders();
   const session = await getSession(context);
 

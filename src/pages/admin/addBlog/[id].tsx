@@ -1,5 +1,5 @@
 import { router } from "@trpc/server";
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, getSession, GetSessionParams } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -10,7 +10,7 @@ import { api } from "../../../utils/api";
 import Image from "next/image";
 import HeaderBlackEditBlog from "../../../components/HeaderBlackEditBlog";
 
-function Index(this: any) {
+function Index() {
   const [title, setTitle] = useState("Vul een titel in");
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
@@ -23,8 +23,8 @@ function Index(this: any) {
 
   const { data: getSpecdata, isLoading: isLoadinggetSpecItemsNL } =
     api.blog.getSpecBlog.useQuery({
-      id: router.query.id as any,
-      routerLang: router.locale as any,
+      id: router.query.id as string,
+      routerLang: router.locale as string,
     });
 
   const { mutateAsync: mutateNLEdit } = api.blog.EditBlogNL.useMutation();
@@ -32,16 +32,16 @@ function Index(this: any) {
   const { mutateAsync: mutateDeleteNL } = api.blog.DeleteBlogNL.useMutation();
 
   useEffect(() => {
-    setTitle(getSpecdata?.title as any);
-    setAuthor(getSpecdata?.author as any);
-    setText(getSpecdata?.text as any);
-    setImage(getSpecdata?.image as any);
+    setTitle(getSpecdata?.title as string);
+    setAuthor(getSpecdata?.author as string);
+    setText(getSpecdata?.text as string);
+    setImage(getSpecdata?.image as string);
   }, [getSpecdata]);
 
   const editBlogNL = () => {
     if (title != "Vul een titel in" && text != "" && image != "/manruby.png") {
       mutateNLEdit({
-        id: router.query.id as any,
+        id: router.query.id as string,
         title: title,
         author: author,
         text: text,
@@ -53,7 +53,7 @@ function Index(this: any) {
     }
   };
 
-  const deleteBlog = (blogId: any) => {
+  const deleteBlog = (blogId: string) => {
     mutateDeleteNL({ id: blogId });
     router.push("/admin/dashboard");
   };
@@ -179,10 +179,10 @@ function Index(this: any) {
               <div className="h-10"></div>
             </div>
           </Link>
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <>
-                {data.title.includes(router.query.id) && (
+                {data.title.includes(router.query.id as string) && (
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
@@ -210,7 +210,7 @@ function Index(this: any) {
               </>
             );
           })}
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                 <div className="flex">
@@ -275,7 +275,7 @@ function Index(this: any) {
 
 export default Index;
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const providers = await getProviders();
   const session = await getSession(context);
 

@@ -1,4 +1,4 @@
-import { getProviders, getSession } from "next-auth/react";
+import { getProviders, getSession, GetSessionParams } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -9,14 +9,14 @@ import { api } from "../../../utils/api";
 import Image from "next/image";
 import HeaderBlack from "../../../components/HeaderBlack";
 
-function Index(this: any) {
+function Index() {
   const [title, setTitle] = useState("Vul een titel in");
   const [author, setAuthor] = useState("Jorn Ringeling");
   const [text, setText] = useState("");
   const [image, setImage] = useState("/manruby.png");
   const [isToggled, setIsToggled] = useState(false);
   const router = useRouter();
-  const [flag, setFlag] = useState<any>();
+  const [flag, setFlag] = useState<React.ReactNode>();
   const { data: getdataALL, isLoading: isLoadinggetItemsNL } =
     api.blog.getBlogALL.useQuery({ routerLang: router.locale });
 
@@ -65,7 +65,7 @@ function Index(this: any) {
   const addBlogNL = () => {
     if (title != "Vul een titel in" && text != "" && image != "/manruby.png") {
       mutateNL({
-        routerLang: router.locale as any,
+        routerLang: router.locale as string,
         title: title,
         author: author,
         text: text,
@@ -77,7 +77,7 @@ function Index(this: any) {
     }
   };
 
-  const deleteBlog = (blogId: any) => {
+  const deleteBlog = (blogId: string) => {
     mutateDeleteNL({ id: blogId });
     router.push("/admin/dashboard");
   };
@@ -210,10 +210,10 @@ function Index(this: any) {
           <Link href="/">
             <div className="h-10"></div>
           </Link>
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <>
-                {data.title.includes(router.query.id) && (
+                {data.title.includes(router.query.id as string) && (
                   <div className="-ml-0 hidden lg:-ml-40 lg:grid" key={index}>
                     <div className="flex-col items-center">
                       {data?.author == "Mark Teekens" ? (
@@ -247,7 +247,7 @@ function Index(this: any) {
               </>
             );
           })}
-          {getdataALL?.map((data: any, index: number) => {
+          {getdataALL?.map((data, index: number) => {
             return (
               <div key={index} className="mt-6 -ml-0 lg:-ml-40">
                 <div className="flex">
@@ -321,7 +321,7 @@ function Index(this: any) {
 
 export default Index;
 
-export async function getServerSideProps(context: any) {
+export async function getServerSideProps(context: GetSessionParams | undefined) {
   const providers = await getProviders();
   const session = await getSession(context);
 

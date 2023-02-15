@@ -48,12 +48,12 @@ function BlogId() {
               /* NL */
               <div className="grid min-h-screen grid-cols-1 lg:flex">
                 <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     const splittedAll = data.text.split("/n");
                     const textMapped = splittedAll?.map(
-                      (field: string, index: number) => {
+                      (field: string, i: number) => {
                         return (
-                          <div key={index}>
+                          <div key={i}>
                             <p className="mt-2">
                               <ReactMarkdown>{field}</ReactMarkdown>
                             </p>
@@ -63,8 +63,8 @@ function BlogId() {
                     );
 
                     return (
-                      <div key={index}>
-                        {data.title.includes(router.query.id) && (
+                      <div key={i}>
+                        {data.title.includes(router.query.id as string) && (
                           <div className="m-auto w-full cursor-pointer lg:w-8/12">
                             <div className="">
                               <div className="flex justify-between">
@@ -94,7 +94,7 @@ function BlogId() {
                                     </p>
                                     <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
                                       {" "}
-                                      {data.date.toLocaleDateString()}
+                                      {data.date?.toLocaleDateString()}
                                     </p>
                                   </div>
                                 </div>
@@ -153,13 +153,13 @@ function BlogId() {
                       </button>
                     </div>
                   </Link>
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     return (
                       <>
-                        {data.title.includes(router.query.id) && (
+                        {data.title.includes(router.query.id as string) && (
                           <div
                             className="-ml-0 hidden lg:-ml-40 lg:grid"
-                            key={index}
+                            key={i}
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
@@ -193,9 +193,9 @@ function BlogId() {
                       </>
                     );
                   })}
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     return (
-                      <div key={index} className="mt-6 -ml-0 lg:-ml-40">
+                      <div key={i} className="mt-6 -ml-0 lg:-ml-40">
                         <Link href={`/blogs/${data.title}`}>
                           <div className="flex">
                             <div className="w-4/6">
@@ -251,13 +251,13 @@ function BlogId() {
               /* EN */
               <div className="grid min-h-screen grid-cols-1 lg:flex">
                 <div className="w-full justify-center p-2 lg:w-4/6 lg:p-4">
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     const splittedAll = data.text.split("/n");
 
                     const textMapped = splittedAll?.map(
-                      (field: string, index: number) => {
+                      (field: string, i: number) => {
                         return (
-                          <div key={index}>
+                          <div key={i}>
                             <p className="mt-2">
                               <ReactMarkdown>{field}</ReactMarkdown>
                             </p>
@@ -267,8 +267,8 @@ function BlogId() {
                     );
 
                     return (
-                      <div key={index}>
-                        {data.title.includes(router.query.id) && (
+                      <div key={i}>
+                        {data.title.includes(router.query.id as string) && (
                           <div className="m-auto w-full cursor-pointer lg:w-8/12">
                             <div className="">
                               <div className="flex justify-between">
@@ -298,7 +298,7 @@ function BlogId() {
                                     </p>
                                     <p className="ml-2 text-sm font-normal text-gray-700 lg:text-base">
                                       {" "}
-                                      {data.date.toLocaleDateString()}
+                                      {data.date?.toLocaleDateString()}
                                     </p>
                                   </div>
                                 </div>
@@ -357,13 +357,13 @@ function BlogId() {
                       </button>
                     </div>
                   </Link>
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     return (
                       <>
-                        {data.title.includes(router.query.id) && (
+                        {data.title.includes(router.query.id as string) && (
                           <div
                             className="-ml-0 hidden lg:-ml-40 lg:grid"
-                            key={index}
+                            key={i}
                           >
                             <div className="flex-col items-center">
                               {data?.author == "Mark Teekens" ? (
@@ -397,9 +397,9 @@ function BlogId() {
                       </>
                     );
                   })}
-                  {getdataALL?.map((data: any, index: number) => {
+                  {getdataALL?.map((data, i: number) => {
                     return (
-                      <div key={index} className="mt-6 -ml-0 lg:-ml-40">
+                      <div key={i} className="mt-6 -ml-0 lg:-ml-40">
                         <Link href={`/blogs/${data.title}`}>
                           <div className="flex">
                             <div className="w-4/6">

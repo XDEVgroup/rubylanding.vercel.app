@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-function Header({}: any) {
+function Header() {
   const router = useRouter();
-  const changeLanguage = (e: any) => {
+  const changeLanguage = (e:React.ChangeEvent<HTMLSelectElement>) => {
     const locale = e.target.value;
     router.push(`${router.pathname}`, `${router.pathname}`, { locale });
   };
-  const [flag, setFlag] = useState<any>();
+  const [flag, setFlag] = useState<React.ReactNode>();
 
   useEffect(() => {
     if (router.locale == "en") {
