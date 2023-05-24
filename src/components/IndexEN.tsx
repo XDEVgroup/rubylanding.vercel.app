@@ -11,7 +11,7 @@ function IndexEN() {
   }
   return (
     <div>
-      <div className="h-screen w-full bg-[url('/hero-img.jpg')] text-white">
+      <div className="h-screen w-full bg-gradient-to-b from-yellow-400 to-yellow-200 text-black">
         <Header scrolltoId={scrolltoId} />
         <div className="mt-0 grid grid-cols-1 items-center justify-center lg:mt-20 lg:flex lg:grid-cols-2 ">
           <div className="mt-20 w-full p-10 lg:w-5/12 lg:p-0">
@@ -26,7 +26,7 @@ function IndexEN() {
             </p>
             <button
               onClick={scrolltoId}
-              className="mt-10 rounded-full border border-white bg-transparent p-2 text-lg font-bold transition hover:bg-white hover:text-purple-600 lg:mt-4"
+              className="mt-10 rounded-full border border-black bg-transparent p-2 p-3 text-lg font-bold transition hover:border-purple-600  hover:text-purple-600 lg:mt-4"
             >
               Schedule a call
             </button>
@@ -128,7 +128,7 @@ function IndexEN() {
 
           <div>
             <section className="">
-              <div className="mx-auto max-w-screen-xl py-8 px-4 lg:py-16 lg:px-6">
+              <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
                 <div className="space-y-3 sm:gap-2 lg:grid lg:grid-cols-2 lg:space-y-0">
                   <div className="">
                     <h2 className="text-3xl font-bold">

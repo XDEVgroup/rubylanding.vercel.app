@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-interface Props{
-scrolltoId?: () => void
+interface Props {
+  scrolltoId?: () => void;
 }
 
-function Header({}:Props) {
+function Header({}: Props) {
   const router = useRouter();
   const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const locale = e.target.value;
@@ -45,14 +45,14 @@ function Header({}:Props) {
     }
   }, [router.locale]);
   return (
-    <header className="flex items-center justify-between p-6 px-4 lg:p-3 lg:py-5 lg:px-10">
+    <header className="flex items-center justify-between p-6 px-4 lg:p-3 lg:px-10 lg:py-5">
       <Link href="/">
         <div className="w-20 lg:w-40">
           <Image
             loading="eager"
             width={150}
             height={150}
-            src="/Ruby_logo.png"
+            src="/Ruby_logo_black.png"
             alt=""
           />
         </div>
